@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+:host .xxx-small-space {
+	padding: 0.0625rem var(--lwc-spacingNone);
+}
+:host .small-space {
+	padding: 0.375rem var(--lwc-spacingNone);
+}
+:host .xx-large-space {
+	padding: 4rem var(--lwc-spacingNone);
+}

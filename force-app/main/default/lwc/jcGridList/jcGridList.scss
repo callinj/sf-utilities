@@ -1,0 +1,36 @@
+@use '~../variables' as *;
+:host {
+	.grid {
+		margin: calc((var(--jc-grid-gutter-size, #{$spacing-small}) / 2) * -1);
+		// margin-left: calc(-1 * var(--jc-grid-gutter-size, #{$spacing-small}));
+		.grid-tile {
+			--jc-tile-icon-color: var(--jc-grid-tile-icon-color);
+			--jc-tile-border-color: var(--jc-grid-tile-border-color);
+			--jc-tile-visor-background-color: var(--jc-grid-tile-visor-background-color, transparent);
+			--jc-tile-visor-background-image: var(--jc-grid-tile-visor-background-image, none);
+			--jc-tile-heading-spacing: 0;
+			--jc-tile-description-spacing: 0;
+			--jc-tile-transition-duration: #{$duration-slow};
+			padding: calc(var(--jc-grid-gutter-size, #{$spacing-small}) / 2);
+			button {
+				background: none;
+				padding: $spacing-none;
+				border: none;
+				width: 100%;
+				height: 100%;
+				label {
+					display: none;
+				}
+				&:hover,
+				&:focus {
+					--jc-tile-icon-color: var(--jc-grid-tile-icon-color-hover);
+					--jc-tile-visor-background-color: var(
+						--jc-grid-tile-visor-background-color-hover,
+						var(--jc-grid-tile-visor-background-color)
+					);
+					--jc-tile-visor-background-image: var(--jc-grid-tile-visor-background-image-hover);
+				}
+			}
+		}
+	}
+}

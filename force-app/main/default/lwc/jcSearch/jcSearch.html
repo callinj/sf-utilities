@@ -1,0 +1,46 @@
+<template>
+	<div class="jc-component">
+		<lightning-input
+			label="Search"
+			placeholder={placeholder}
+			type="search"
+			variant="label-hidden"
+			value={inputValue}
+			oncommit={handleChange}
+		></lightning-input>
+		<lightning-layout if:true={showDropdowns} class="filters" pull-to-boundary="small" multiple-rows>
+			<template for:each={dropdowns} for:item="option">
+				<lightning-layout-item
+					key={option.index}
+					class="slds-var-m-top_x-small slds-var-p-horizontal_x-small"
+					size={columns.size}
+					medium-device-size={columns.medium}
+					large-device-size={columns.large}
+				>
+					<lightning-combobox
+						name="topics"
+						label="Topics"
+						options={option.options}
+						value={option.selected}
+						onchange={handleDropdown}
+						variant="label-hidden"
+						data-id={option.index}
+					></lightning-combobox>
+				</lightning-layout-item>
+			</template>
+		</lightning-layout>
+		<lightning-layout if:true={displayToggle} class="slds-var-m-top_x-small">
+			<lightning-layout-item>
+				<lightning-input
+					type="toggle"
+					label="Match All Topics"
+					name="toggleOperator"
+					checked={matchAll}
+					onchange={handleToggle}
+					message-toggle-active=""
+					message-toggle-inactive=""
+				></lightning-input>
+			</lightning-layout-item>
+		</lightning-layout>
+	</div>
+</template>

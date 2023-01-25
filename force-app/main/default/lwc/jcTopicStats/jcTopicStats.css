@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+:host .vertical-rule {
+	border-right: 2px solid #96968c;
+}
+
+:host .no-margin {
+	margin-bottom: calc(-1 * var(--lwc-varSpacingLarge));
+}
+
+:host .align-follow {
+	width: 81px;
+}
+
+:host lightning-icon {
+	margin-bottom: 5px;
+}

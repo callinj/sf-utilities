@@ -1,0 +1,59 @@
+<template>
+	<!-- TODO show message when there are no valid fields returned -->
+	<!-- TODO change to use lightning edit form so we can support required fields at a component level -->
+	<section class="jc-component" if:true={loaded}>
+		<lightning-accordion active-section-name={openAccordion} allow-multiple-sections-open if:true={showAccordion}>
+			<lightning-accordion-section name={accordionName} label={title} class="slds-p-horizontal_none">
+				<lightning-record-form
+					record-id={recordId}
+					object-api-name={objectApiName}
+					record-type-id={recordTypeId}
+					columns={columns}
+					layout-type={layout}
+					mode="view"
+					if:true={layout}
+				>
+				</lightning-record-form>
+				<lightning-record-form
+					record-id={recordId}
+					object-api-name={objectApiName}
+					record-type-id={recordTypeId}
+					columns={columns}
+					fields={objectFields}
+					mode="view"
+					if:true={showCustomForm}
+				>
+				</lightning-record-form>
+				<div if:true={noSelection}>
+					<p>There were no fields specified</p>
+				</div>
+			</lightning-accordion-section>
+		</lightning-accordion>
+		<section if:false={showAccordion}>
+			<c-jc-text content-type="h3" content-text={title} if:true={title}></c-jc-text>
+			<lightning-record-form
+				record-id={recordId}
+				object-api-name={objectApiName}
+				record-type-id={recordTypeId}
+				columns={columns}
+				layout-type={layout}
+				mode="view"
+				if:true={layout}
+			>
+			</lightning-record-form>
+			<!-- <lightning-record-form record-id={recordId} object-api-name={objectApiName} record-type-id={recordTypeId} columns={columns} fields={objectFields} mode="view" if:true={showCustomForm}>
+			</lightning-record-form> -->
+			<c-jc-record-detail-view
+				record-id={recordId}
+				object-name={objectApiName}
+				custom-fields={objectFields}
+				hide-empty-fields
+				columns={columns}
+				if:true={showCustomForm}
+			></c-jc-record-detail-view>
+			<div if:true={noSelection}>
+				<p>There were no fields specified</p>
+			</div>
+		</section>
+	</section>
+</template>

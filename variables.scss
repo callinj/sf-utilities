@@ -1,0 +1,138 @@
+// ===================
+// Variables
+// ===================
+
+// Primary Colors
+$brand-primary: #a100ff;
+$brand-primary-secondary: #7500c0;
+$brand-primary-tertiary: #460073;
+
+//Secondary Colors
+$brand-secondary: #0041f0;
+$brand-secondary-blue: #00ffff;
+$brand-secondary-green: #64ff50;
+$brand-secondary-bluegreen: #05f0a5;
+$brand-secondary-red: #ff3246;
+$brand-secondary-pink: #ff50a0;
+$brand-secondary-orange: #ff7800;
+$brand-secondary-yellow: #ffeb32;
+
+// Accent Colors
+$brand-accent-1: #b455aa;
+$brand-accent-2: #a055f5;
+$brand-accent-3: #be82ff;
+$brand-accent-4: #dcafff;
+$brand-accent-5: #e6dcff;
+
+//Neutral Colors
+$white: #fff;
+$black: #000;
+$black-typography: #333333;
+$gray: #e6e6dc;
+$gray-light: scale-color($white, $saturation: 4%, $lightness: -5%);
+$gray-dark: #96968c;
+
+// ============================
+// Saleforce Token Mapping
+// ============================
+
+// Colors
+$color-brand: var(--lwc-colorBrand, $brand-primary);
+$color-hover: var(--lwc-colorBackgroundButtonBrandHover, $brand-primary-secondary);
+$color-text: var(--lwc-colorTextDefault, $black-typography);
+$color-page-background: var(--lwc-colorPageBackground, $white);
+
+$backColor: var(--lwc-colorBackground);
+$errorColor: var(--lwc-colorBackgroundError);
+$successColor: var(--lwc-colorTextSuccess);
+
+$backHover: var(--lwc-colorBackgroundButtonDefaultActive);
+$buttonShadow: var(--lwc-shadowButtonFocus);
+
+$altColor: var(--lwc-labelColor);
+$altHover: var(--lwc-labelColor);
+
+$bgColor: var(--lwc-brandColor);
+$tertiaryColor: $bgColor;
+$tertiaryHover: var(--lwc-brandHoverColor);
+
+$titleColor: var(--lwc-labelColor);
+$linkColor: var(--lwc-linkColor);
+$iconDefaultColor: var(--lwc-colorTextIconDefault);
+$inverseTextColor: var(--lwc-inverseTextColor);
+$inverseButtonTextColor: var(--lwc-colorTextButtonInverse);
+$borderColor: var(--lwc-colorBorder);
+
+// Fonts
+$font: var(--lwc-fontFamily, sans-serif);
+$font-title: var(--lwc-fontFamilyHeading, sans-serif); // Can't find this design token listed anywhere!
+
+// Font
+$font-11: var(--lwc-varFontSize11, 2.625rem); // 2.625rem/42px
+$font-10: var(--lwc-varFontSize10, 2rem); // 2rem/32px
+$font-9: var(--lwc-varFontSize9, 1.75rem); // 1.75rem/28px
+$font-8: var(--lwc-varFontSize8, 1.5rem); // 1.5rem/24px
+$font-7: var(--lwc-varFontSize7, 1.25rem); // 1.25rem/20px
+$font-6: var(--lwc-varFontSize6, 1.125rem); // 1.125rem/18px
+$font-5: var(--lwc-varFontSize5, 1rem); // 1rem/16px
+$font-4: var(--lwc-varFontSize4, 0.875rem); // .875rem/14px
+$font-3: var(--lwc-varFontSize3, 0.8125rem); // .8125rem/13px
+$font-2: var(--lwc-varFontSize2, 0.75rem); // .75rem/12px
+$font-1: var(--lwc-varFontSize1, 0.625rem); // .625rem/10px
+
+// Time
+$duration-instant: var(--lwc-durationInstantly, 0s);
+$duration-immediate: var(--lwc-durationImmediately, 0.05s);
+$duration-quick: var(--lwc-durationQuickly, 0.1s);
+$duration-prompt: var(--lwc-durationPromptly, 0.2s);
+$duration-slow: var(--lwc-durationSlowly, 0.4s);
+$duration-paused: var(--lwc-durationPaused, 3.2s);
+
+// Sizing
+$size-xx-large: var(--lwc-sizeXxLarge, 60rem); // 60rem/960px
+$size-x-large: var(--lwc-sizeXLarge, 40rem); // 40rem/640px
+$size-large: var(--lwc-sizeLarge, 25rem); // 25rem/400px
+$size-medium: var(--lwc-sizeMedium, 20rem); // 20rem/320px
+$size-small: var(--lwc-sizeSmall, 15rem); // 15rem/240px
+$size-x-small: var(--lwc-sizeXSmall, 12rem); // 12rem/192px
+$size-xx-small: var(--lwc-sizeXxSmall, 6rem); // 6rem/96px
+$size-xx-small: var(--lwc-sizeXxxSmall, 3rem); // 3rem/48px
+
+// Spacing
+$spacing-xxx-small: var(--lwc-varSpacingXxxSmall, 0.125rem); // .125rem/2px
+$spacing-xx-small: var(--lwc-varSpacingXxSmall, 0.25rem); // .25rem/4px
+$spacing-x-small: var(--lwc-varSpacingXSmall, 0.5rem); // .5rem/8px
+$spacing-small: var(--lwc-varSpacingSmall, 0.75rem); // .75rem/12px
+$spacing-medium: var(--lwc-varSpacingMedium, 1rem); // 1rem/16px
+$spacing-large: var(--lwc-varSpacingLarge, 1.5rem); // 1.5rem/24px
+$spacing-x-large: var(--lwc-varSpacingXLarge, 2rem); // 2rem/32px
+$spacing-xx-large: var(--lwc-varSpacingXxLarge, 3rem); // 3rem/48px
+$spacing-none: var(--lwc-spacingNone, 0rem);
+$gutter: $spacing-x-small;
+
+// Line heights
+$line-reset: var(--lwc-lineHeightReset, 1);
+$line-title: var(--lwc-lineHeightHeading, 1.25);
+$line-text: var(--lwc-lineHeightText, 1.5);
+
+// Layouts - in SF it's just sm,md,lg, no xs. Use min queries (mobile first)
+$screen-small: var(--lwc-mqMedium, 'only screen and (max-width: 47.9375em)');
+$screen-medium: var(--lwc-mqMedium, 'only screen and (min-width: 48em)');
+$screen-medium-landscape: var(--lwc-mqMedium, 'only screen and (min-width: 48em) and (min-aspect-ratio: 4/3)');
+$screen-large: var(--lwc-mqLarge, 'only screen and (min-width: 64.0625em)');
+
+// Weights
+$weight-bold: var(--lwc-fontWeightBold, 700);
+$weight-regular: var(--lwc-fontWeightRegular, 400);
+$weight-light: var(--lwc-fontWeightLight, 300);
+
+// Border Radius
+$radius-circle: var(--lwc-borderRadiusCircle, 50%);
+$radius-pill: var(--lwc-borderRadiusPill, 15rem);
+$radius-large: var(--lwc-borderRadiusLarge, 0.5rem);
+$radius-medium: var(--lwc-borderRadiusMedium, 25rem);
+$radius-small: var(--lwc-borderRadiusSmall, 0.125rem);
+
+// Shadows
+$shadow-drag: var(--lwc-shadowDrag);
+$shadow-dropdown: var(--lwc-shadowDropDown);

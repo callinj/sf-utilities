@@ -1,0 +1,79 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<lightning-spinner variant="brand" alternative-text="Loading..." if:false={loaded}></lightning-spinner>
+
+		<!-- Show top pagination -->
+		<div class="slds-var-m-top_medium" if:true={showTopPagination}>
+			<c-jc-pagination
+				if:true={displayRecords}
+				total-items={articlesLength}
+				onupdate={handlePaginatorChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={showAsButtons}
+				large-buttons={largeButtons}
+			></c-jc-pagination>
+		</div>
+
+		<!-- Records to Display -->
+		<template if:true={displayRecords}>
+			<c-jc-basic-list
+				if:true={isList}
+				items={articles}
+				enable-preview={enablePreview}
+				show-summary={showSummary}
+				show-date={showDate}
+				show-views={showViews}
+				show-topics={showTopics}
+				tighten-spacing={tightenSpacing}
+				sort-options={sortOptions}
+				default-sort={defaultSortOrder}
+				onupdate={handleSortOption}
+				article-list
+			></c-jc-basic-list>
+
+			<c-jc-accordion-list
+				if:true={isAccordion}
+				items={articles}
+				enable-preview={enablePreview}
+				show-description={showSummary}
+				show-date={showDate}
+				show-views={showViews}
+				show-topics={showTopics}
+				tighten-spacing={tightenSpacing}
+				show-view-article={showViewArticle}
+				sort-options={sortOptions}
+				default-sort={defaultSortOrder}
+				onupdate={handleSortOption}
+			></c-jc-accordion-list>
+		</template>
+
+		<!-- Display Zero State Message -->
+		<c-jc-text
+			if:false={displayRecords}
+			content-type="p.lead"
+			content-text={zeroStateMessage}
+			content-align="center"
+			no-space
+		></c-jc-text>
+
+		<!-- Show bottom pagination-->
+		<div class="slds-var-m-top_medium" if:true={showBottomPagination}>
+			<c-jc-pagination
+				if:true={displayRecords}
+				total-items={articlesLength}
+				onupdate={handlePaginatorChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={showAsButtons}
+				large-buttons={largeButtons}
+			></c-jc-pagination>
+		</div>
+	</section>
+</template>

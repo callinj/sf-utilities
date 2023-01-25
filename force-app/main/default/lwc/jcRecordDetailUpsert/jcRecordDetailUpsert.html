@@ -1,0 +1,64 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<lightning-layout horizontal-align="center" vertical-align="center" class="jc-spinner" if:false={loaded}>
+			<lightning-layout-item>
+				<lightning-spinner variant="brand" alternative-text="Loading..."></lightning-spinner>
+			</lightning-layout-item>
+		</lightning-layout>
+
+		<lightning-record-edit-form
+			object-api-name={objectName}
+			onload={handleLoad}
+			onsubmit={handleSubmit}
+			onsuccess={handleSuccess}
+			onerror={handleError}
+			if:true={hasSections}
+		>
+			<!-- TODO | Add section for custom fields logic -->
+			<!-- TODO | Respect disabled and default fields -->
+
+			<template for:each={sections} for:item="section" for:index="sectionIndex">
+				<section class={section.class} key={section.key}>
+					<c-jc-text content-type="H5" content-text={section.heading}></c-jc-text>
+					<template for:each={section.rows} for:item="row" for:index="rowIndex">
+						<lightning-layout horizontal-align="start" vertical-align="start" key={row.key} multiple-rows>
+							<template for:each={row.fields} for:item="field" for:index="fieldIndex">
+								<lightning-layout-item
+									size={section.columns.size}
+									medium-device-size={section.columns.medium}
+									large-device-size={section.columns.large}
+									flexibility="grow"
+									class={field.layoutClass}
+									key={field.key}
+								>
+									<lightning-input-field
+										field-name={field.apiName}
+										variant="label-stacked"
+										value={field.value}
+										required={field.required}
+										disabled={field.disabled}
+										class={field.fieldClass}
+										if:true={field.apiName}
+									>
+									</lightning-input-field>
+								</lightning-layout-item>
+							</template>
+						</lightning-layout>
+					</template>
+				</section>
+			</template>
+
+			<div class="slds-var-p-horizontal_xx-small">
+				<lightning-file-upload
+					label="Upload File(s)"
+					name="fileUploader"
+					onuploadfinished={handleUploadFinished}
+					multiple
+					if:true={enableUpload}
+				>
+				</lightning-file-upload>
+			</div>
+			<lightning-button variant="brand" type="submit" label="Save" class="slds-hide"></lightning-button>
+		</lightning-record-edit-form>
+	</section>
+</template>

@@ -1,0 +1,18 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<!-- TODO How is the id being forced? -->
+		<lightning-datatable
+			key-field="id"
+			data={records}
+			columns={columns}
+			column-widths-mode={columnWidthsMode}
+			hide-checkbox-column={hideCheckboxes}
+			show-row-number-column={showRowNumbers}
+			resize-column-disabled={disableColumnResizing}
+			hide-table-header={hideTableHeader}
+			is-loading={isLoading}
+			onrowaction={handleRowAction}
+		>
+		</lightning-datatable>
+	</section>
+</template>

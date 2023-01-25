@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Topic List</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="showTopicDescription"
+				type="Boolean"
+				label="Show Topic Description"
+				default="true"
+				description="Specifies whether or not to display the topic's description."
+			/>
+            <property
+				name="showFollowButton"
+				type="Boolean"
+				label="Show Follow Button"
+				default="true"
+				description="Specifies whether or not to display te follow button."
+			/>
+            <property
+				name="showFollowerCount"
+				type="Boolean"
+				label="Show Follower Count"
+				default="true"
+				description="Specifies whether or not to display the follow count."
+			/>
+            <property
+				name="showArticleCount"
+				type="Boolean"
+				label="Show Article Count"
+				default="true"
+				description="Specifies whether or not to display the article count."
+			/>
+            <property
+				name="showDiscussionCount"
+				type="Boolean"
+				label="Show Discussion Count"
+				default="true"
+				description="Specifies whether or not to display the discussion count."
+			/>
+            <property
+				name="showFollowSeparator"
+				type="Boolean"
+				label="Show Follow Separator"
+				default="true"
+				description="Choose to whether or not to display the vertical rule for the follow button"
+			/>
+            <property
+				name="alignFollowSeparator"
+				type="Boolean"
+				label="Align Follow Separator"
+				default="true"
+				description="Specify whether or not to align the follow separator."
+			/>
+            <property
+				name="featuredText"
+				type="String"
+				label="Featured Topic Icon and Text"
+				default="utility:ribbon Featured"
+				description="Specifies the icon and text for the feauted section."
+			/>
+            <property
+				name="pageSizeOptions"
+				type="String"
+				label="Page Size Options"
+				default="5,10,25,50"
+				description="Specifies a list of numbers separated by a comma for the page size options."
+			/>
+            <property
+				name="defaultPageSize"
+				type="Integer"
+				label="Default Page Size"
+				min="0"
+				description="Specifies the default page size option"
+			/>
+            <property
+				name="paginationLocation"
+				type="String"
+				label="Pagination Location"
+				datasource="Top,Bottom,Both,None"
+				default="Bottom"
+				description="Specifies the location of the pagination."
+			/>
+            <property
+				name="previousButton"
+				type="String"
+				label="Previous Button Text"
+				default="Prev"
+				description="Specifies the previous icon's label and icon."
+			/>
+            <property
+				name="nextButton"
+				type="String"
+				label="Next Button Text"
+				default="Next"
+				description="Specifies the next icon's label and icon."
+			/>
+            <property
+				name="showAsButtons"
+				type="Boolean"
+				label="Show As Buttons"
+				default="true"
+				description="Specifies if the pagination buttons should be displayed as buttons or links."
+			/>
+            <property
+				name="largeButtons"
+				type="Boolean"
+				label="Large Buttons"
+				description="Displays the buttons as large buttons."
+			/>
+             <property
+				name="tightenSpacing"
+				type="Boolean"
+				label="Tighten Spacing"
+				description="Tightens the spacing between the end of the content and the horizontal rule"
+			/>
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message the user sees when no results are returned"
+				default="No Topics Found"
+			/>
+            <property
+				name="searchIdentifier"
+				type="String"
+				label="Search Identifier"
+				description="Identify the Search Identifier to communicate with partner component.  Search Identifier must be the exact same as it's partner component."
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

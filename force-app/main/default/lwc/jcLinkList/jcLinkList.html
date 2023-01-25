@@ -1,0 +1,42 @@
+<template>
+	<lightning-layout if:true={inline} vertical-align="center" multiple-rows>
+		<template iterator:it={items}>
+			<lightning-layout-item key={it.value.id}>
+				<lightning-layout vertical-align="center">
+					<lightning-layout-item>
+						<c-jc-action label={it.value.name} url={it.value.url}></c-jc-action>
+					</lightning-layout-item>
+					<lightning-layout-item>
+						<span if:true={showFollow} class="slds-m-left_xx-small"
+							>(<c-jc-follow-link topic={it.value} onfollowchange={handleFollowChange}></c-jc-follow-link
+							>)</span
+						>
+						<template if:true={verticalRule}>
+							<span if:false={it.last} class="slds-m-horizontal_xx-small">{separator}</span>
+						</template>
+						<template if:false={verticalRule}>
+							<span if:false={it.last} class="slds-m-right_xx-small">{separator}</span>
+						</template>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+		</template>
+	</lightning-layout>
+
+	<ul if:true={list}>
+		<template iterator:it={items}>
+			<li key={it.value.id}>
+				<lightning-layout vertical-align="center">
+					<lightning-layout-item>
+						<c-jc-action label={it.value.name} url={it.value.url}></c-jc-action>
+					</lightning-layout-item>
+					<lightning-layout-item if:true={showFollow}>
+						<span class="slds-m-left_xx-small">
+							(<c-jc-follow-link topic={it.value} onfollowchange={handleFollowChange}></c-jc-follow-link>)
+						</span>
+					</lightning-layout-item>
+				</lightning-layout>
+			</li>
+		</template>
+	</ul>
+</template>

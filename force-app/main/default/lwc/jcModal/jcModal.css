@@ -1,0 +1,7 @@
+:host .close-button {
+	--slds-c-icon-color-foreground: #fff;
+	--slds-c-button-text-color-hover: hsla(0, 0%, 100%, 0.75);
+}
+:host .slds-modal__content {
+	min-height: 250px;
+}

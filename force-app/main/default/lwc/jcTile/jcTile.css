@@ -1,0 +1,63 @@
+:host > .jc-component {
+  border-radius: var(--jc-tile-border-radius, 0);
+  overflow: hidden;
+  box-shadow: var(--jc-tile-shadow, none);
+  transition-property: box-shadow;
+  transition-duration: var(--jc-tile-shadow-transition-duration, var(--jc-tile-transition-duration, var(--lwc-durationQuickly, 0.1s)));
+  transition-timing-function: var(--jc-tile-shadow-transition-timing, var(--jc-tile-transition-timing, ease-in-out));
+}
+:host > .jc-component .tile-visor {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--jc-tile-visor-background-color, var(--lwc-colorBrand, #a100ff));
+  background-image: var(--jc-tile-visor-background-image, none);
+  opacity: var(--jc-tile-visor-opacity, 0.5);
+  transition-property: background-color;
+  transition-duration: var(--jc-tile-visor-background-transition-duration, var(--jc-tile-transition-duration, var(--lwc-durationQuickly, 0.1s)));
+  transition-timing-function: var(--jc-tile-visor-background-transition-timing, var(--jc-tile-transition-timing, ease-in-out));
+}
+:host > .jc-component .tile-content {
+  height: 100%;
+  color: #fff;
+  padding: var(--lwc-varSpacingMedium, 1rem);
+  position: relative;
+  overflow: hidden;
+  max-width: 1170px;
+  margin: var(--lwc-spacingNone, 0rem) auto;
+}
+:host > .jc-component .tile-content .main-content .tile-heading {
+  margin: var(--jc-tile-heading-spacing, 0 0 var(--lwc-varSpacingXLarge, 2rem));
+}
+:host > .jc-component .tile-content .main-content .tile-description {
+  margin: var(--jc-tile-description-spacing, 0 0 var(--lwc-varSpacingXLarge, 2rem));
+}
+:host > .jc-component .tile-content.darkFont {
+  color: var(--lwc-colorTextDefault, #333333);
+}
+:host > .jc-component .sticky-bottom {
+  position: absolute;
+  width: calc(100% - var(--lwc-varSpacingMedium, 1rem) * 2);
+  bottom: var(--lwc-varSpacingMedium, 1rem);
+  color: var(--jc-tile-icon-color, currentColor);
+  transition-property: color;
+  transition-duration: var(--jc-tile-icon-transition-duration, var(--jc-tile-transition-duration, var(--lwc-durationQuickly, 0.1s)));
+  transition-timing-function: var(--jc-tile-icon-transition-timing, var(--jc-tile-transition-timing, ease-in-out));
+}
+:host.roundedCorners > .jc-component {
+  border-radius: var(--lwc-borderRadiusMedium, 25rem);
+}
+:host.borders > .jc-component {
+  border: 1px solid var(--jc-tile-border-color, var(--lwc-colorBorder));
+}
+:host.shadow > .jc-component {
+  --jc-tile-shadow: $shadow-drag;
+}
+:host.no-margin > .jc-component {
+  margin-bottom: calc(-1 * var(--lwc-varSpacingLarge, 1.5rem));
+}
+@media only screen and (max-width: 47.9375em) {
+  :host.mobile-hide > .jc-component {
+    background-image: none !important;
+  }
+}

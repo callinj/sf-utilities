@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Topic Featured</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="displayType"
+				type="String"
+				label="Display Type"
+				datasource="Image Tiles,List"
+				default="Image Tiles"
+				description="Specifies the layout of the tiles."
+			/>
+            <property
+				name="showFollowButton"
+				type="Boolean"
+				label="Show Follow Button"
+				default="true"
+				description="Specifies whether or not to display the follow button."
+			/>
+            <property
+				name="showFollowerCount"
+				type="Boolean"
+				label="Show Follower Count"
+				default="true"
+				description="Specifies whether or not to display the follower count."
+			/>
+            <property
+				name="showArticleCount"
+				type="Boolean"
+				label="Show Article Count"
+				default="true"
+				description="Specifies whether or not to display the article count."
+			/>
+            <property
+				name="showDiscussionCount"
+				type="Boolean"
+				label="Show Discussion Count"
+				default="true"
+				description="Specifies whether or not to display the discussion count."
+			/>
+            <property
+				name="multiLineFollow"
+				type="Boolean"
+				label="Display Follow on New Line"
+				description="Displays the follow button on a new line."
+			/>
+            <property
+				name="multiLineStats"
+				type="Boolean"
+				label="Display Stats on New Line"
+				description="Displays the stats on a new line."
+			/>
+            <property
+				name="columns"
+				type="String"
+				label="Columns"
+				datasource="1,2,3,4,6"
+				default="2"
+				description="Specifies the number of columns in the layout."
+			/>
+            <property
+				name="backgroundImage"
+				type="String"
+				label="Select Background Image"
+				datasource="Default Image,Topic Banner Image,Topic Featured Image"
+				default="Topic Featured Image"
+				description="Select an image to display for the banners."
+			/>
+            <property
+				name="defaultBackground"
+				type="String"
+				label="Default Background Image"
+				description="Specifies the default background image for the tiles."
+			/>
+            <property
+				name="contentAlign"
+				type="String"
+				label="Content Align"
+				datasource="Top - Left,Top - Center,Top - Right,Center - Left,Center - Center,Center - Right,Bottom - Left,Bottom - Center,Bottom - Right"
+				default="Center - Center"
+				description="This will control where the content will be displayed within the banner."
+			/>
+            <property
+				name="textAlignment"
+				type="String"
+				label="Text Alignment"
+				datasource="Left,Center,Right"
+				default="Left"
+				description="This will control the horizontal alignment of the text."
+			/>
+            <property
+				name="truncation"
+				type="String"
+				label="Truncate Title by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the topic title specified by however many lines user selects."
+			/>
+            <property
+				name="imageScale"
+				type="String"
+				label="Image Scale"
+				default="Cover"
+				description='This controls the background image size. This can be "contain", "cover" or a numerical value. If using a numerical value you can specify one, "50%", or two which correspond with "width height", "50% 100%". For more information visit: https://www.w3schools.com/cssref/css3_pr_background-size.asp.'
+			/>
+            <property
+				name="imagePosition"
+				type="String"
+				label="Image Position"
+				datasource="Top - Left,Top - Center,Top - Right,Center - Left,Center - Center,Center - Right,Bottom - Left,Bottom - Center,Bottom - Right"
+				default="Center - Center"
+				description="This will control this position of the image."
+			/>
+            <property
+				name="visorColor"
+				type="String"
+				label="Visor Color"
+				description="Defaults to community brand color. This is the background color for the visor. This will display a color over the background color. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp."
+			/>
+            <property
+				name="visorOpacity"
+				type="String"
+				label="Visor Opacity"
+				description='To hide visor, enter 0 or leave blank. If there is a visor color specified this will set the opacity of that background color. If the visor has an alpha value set, this will override that alpha value. This field accepts percentage values, "50%", "50", .5. If entered value doesn&apos;t have a "%" and the number is greated than 1, then the value will be converted to a percent, "5.25" will be converted to ".525".'
+				default=".5"
+			/>
+            <property
+				name="darkFont"
+				type="Boolean"
+				label="Dark Font?"
+				default="false"
+				description="This controls the content text color. If checked, the content will be displayed in a dark font color."
+			/>
+            <property
+				name="visorBlendMode"
+				type="String"
+				label="Visor Blend Mode"
+				datasource="Normal,Multiply,Screen,Overlay,Darken,Lighten,Color-Dodge,Color-Burn,Hard-Light,Soft-Light,Difference,Exclusion,Hue,Saturation,Color,Luminosity"
+				default="Normal"
+				description="This controls how the visor should blend with the image. For more information visit: https://www.w3schools.com/cssref/pr_mix-blend-mode.asp."
+			/>
+            <property
+				name="tileHeight"
+				type="String"
+				label="Tile Height"
+				default="250px"
+				description="Specifies the height of the tiles. The height can be specified in pixels, em, rem, percentages."
+			/>
+            <property
+				name="iconSize"
+				type="String"
+				label="Icon Size"
+				datasource="xx-small,x-small,small,medium,large"
+				default="small"
+				description="Specifies the size of the icon."
+			/>
+            <!-- <property
+                name="iconPosition"
+                type="String"
+                label="Icon Position"
+                datasource="Top - Left,Top - Center,Top - Right,Center - Left,Center - Center,Center - Right,Bottom - Left,Bottom - Center,Bottom - Right"
+                default="Center - Center"
+                description="This will control this position of the icon."
+            /> -->
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Bottom Margin"
+				default="false"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce."
+			/>
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message to display when no topics are returned"
+				default="No Topics Found"
+			/>
+            <property
+				name="searchIdentifier"
+				type="String"
+				label="Search Identifier"
+				description="Identify the Search Identifier to communicate with partner component.  Search Identifier must be the exact same as it's partner component."
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+            <property
+				name="defineFeaturedTopics"
+				type="String"
+				label="Define Featured Topics"
+				description="Define the specific 'featured' topics you want selected by Id in a comma separated list."
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

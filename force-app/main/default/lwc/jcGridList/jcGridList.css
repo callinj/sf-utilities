@@ -1,0 +1,31 @@
+:host .grid {
+  margin: calc(var(--jc-grid-gutter-size, var(--lwc-varSpacingSmall, 0.75rem)) / 2 * -1);
+}
+:host .grid .grid-tile {
+  --jc-tile-icon-color: var(--jc-grid-tile-icon-color);
+  --jc-tile-border-color: var(--jc-grid-tile-border-color);
+  --jc-tile-visor-background-color: var(--jc-grid-tile-visor-background-color, transparent);
+  --jc-tile-visor-background-image: var(--jc-grid-tile-visor-background-image, none);
+  --jc-tile-heading-spacing: 0;
+  --jc-tile-description-spacing: 0;
+  --jc-tile-transition-duration: var(--lwc-durationSlowly, 0.4s);
+  padding: calc(var(--jc-grid-gutter-size, var(--lwc-varSpacingSmall, 0.75rem)) / 2);
+}
+:host .grid .grid-tile button {
+  background: none;
+  padding: var(--lwc-spacingNone, 0rem);
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+:host .grid .grid-tile button label {
+  display: none;
+}
+:host .grid .grid-tile button:hover, :host .grid .grid-tile button:focus {
+  --jc-tile-icon-color: var(--jc-grid-tile-icon-color-hover);
+  --jc-tile-visor-background-color: var(
+  	--jc-grid-tile-visor-background-color-hover,
+  	var(--jc-grid-tile-visor-background-color)
+  );
+  --jc-tile-visor-background-image: var(--jc-grid-tile-visor-background-image-hover);
+}

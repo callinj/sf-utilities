@@ -1,0 +1,59 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<c-jc-action
+			variant={actionVariant}
+			label={actionLabel}
+			left-icon={actionLeftIcon}
+			right-icon={actionRightIcon}
+			action-align={actionAlign}
+			full-width={actionFullWidth}
+			over-sized={actionOverSized}
+			underline={actionUnderline}
+			border-radius={actionBorderRadius}
+			border-thickness={actionBorderThickness}
+			custom-color={actionCustomColor}
+			onactionclicked={actionClick}
+		></c-jc-action>
+
+		<section if:true={showModal}>
+			<section
+				class="slds-modal slds-fade-in-open slds-modal_small"
+				role="dialog"
+				tabindex="-1"
+				aria-labelledby="modal-heading"
+				aria-modal="true"
+				aria-describedby="modal-content"
+			>
+				<div class="slds-modal__container">
+					<header class="slds-modal__header">
+						<lightning-button-icon
+							class="slds-modal__close close-button"
+							title="Close Modal"
+							alternative-text="Close Modal"
+							icon-name="utility:close"
+							variant="bare"
+							onclick={closeModal}
+							size="large"
+						></lightning-button-icon>
+						<c-jc-text
+							content-type="h2"
+							content-text={formTitle}
+							content-align="center"
+							no-space
+						></c-jc-text>
+					</header>
+					<div class="slds-modal__content slds-var-p-around_medium slds-is-relative" id="modal-content">
+						<lightning-flow
+							flow-api-name="PA_Release_Talent_Decisions_Form"
+							flow-input-variables={inputVariables}
+							flow-finish-behavior="NONE"
+							onstatuschange={handleStatusChange}
+						>
+						</lightning-flow>
+					</div>
+				</div>
+			</section>
+			<div class="slds-backdrop slds-backdrop_open"></div>
+		</section>
+	</section>
+</template>

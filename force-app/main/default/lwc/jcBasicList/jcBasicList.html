@@ -1,0 +1,132 @@
+<template>
+	<section>
+		<!-- Enable Preview Modal -->
+		<c-jc-modal
+			if:true={showPreviewModal}
+			title={articleTitle}
+			cancel-button="Close"
+			accept-button="Navigate to Article"
+			size="large"
+			oncancel={closePreview}
+			onaccept={navigateToRecord}
+		>
+			<span>
+				<c-jc-article-detail
+					record-id={articleId}
+					show-author
+					show-date
+					show-views
+					show-summary
+					show-topics
+					size="large"
+				></c-jc-article-detail>
+			</span>
+		</c-jc-modal>
+
+		<c-jc-list-sorts
+			if:true={sortOptions}
+			selected-option={defaultSort}
+			options={sortOptions}
+			onupdate={handleUpdate}
+		></c-jc-list-sorts>
+
+		<template for:each={items} for:item="item">
+			<section key={item.id} class={spacingClass}>
+				<lightning-layout vertical-align="center" multiple-rows>
+					<lightning-layout-item>
+						<template if:true={showFeatured}>
+							<lightning-layout vertical-align="center" if:true={item.isFeatured}>
+								<lightning-layout-item>
+									<lightning-layout vertical-align="center">
+										<lightning-layout-item>
+											<lightning-icon
+												if:true={iconLeft}
+												icon-name={iconName}
+												size="x-small"
+											></lightning-icon>
+											<lightning-icon
+												if:true={iconBoth}
+												icon-name={iconName}
+												size="x-small"
+											></lightning-icon>
+										</lightning-layout-item>
+										<lightning-layout-item class="slds-var-m-horizontal_xx-small">
+											<c-jc-text
+												content-type="p"
+												content-text={iconLabel}
+												content-align="Center"
+												no-space
+											></c-jc-text>
+										</lightning-layout-item>
+										<lightning-layout-item>
+											<lightning-icon
+												if:true={iconRight}
+												icon-name={iconName}
+												size="x-small"
+											></lightning-icon>
+											<lightning-icon
+												if:true={iconBoth}
+												icon-name={iconName}
+												size="x-small"
+											></lightning-icon>
+										</lightning-layout-item>
+									</lightning-layout>
+								</lightning-layout-item>
+							</lightning-layout>
+						</template>
+						<c-jc-text key={item.id} content-type="h4" no-space if:true={item.name}>
+							<c-jc-action
+								if:false={enablePreview}
+								variant="Special Text Link"
+								label={item.name}
+								url={item.id}
+								custom-color={fontColor}
+							></c-jc-action>
+							<c-jc-action
+								if:true={enablePreview}
+								variant="Special Text Link"
+								label={item.name}
+								data-id={item.id}
+								data-title={item.name}
+								custom-color={fontColor}
+								onclick={openPreview}
+							></c-jc-action>
+						</c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item flexibility="grow" if:true={topicList}>
+						<c-jc-topic-stats
+							record={item}
+							show-follower-count={showFollowerCount}
+							show-article-count={showArticleCount}
+							show-discussion-count={showDiscussionCount}
+							show-follow-button={showFollowButton}
+							show-follow-separator={showFollowSeparator}
+							align-follow-separator={alignFollowSeparator}
+							variant="text"
+						></c-jc-topic-stats>
+					</lightning-layout-item>
+				</lightning-layout>
+
+				<template if:true={showSummary}>
+					<lightning-layout if:true={item.description} class={spacingClass}>
+						<lightning-layout-item>
+							<c-jc-text content-type="p.lead" content-text={item.description} no-space></c-jc-text>
+						</lightning-layout-item>
+					</lightning-layout>
+				</template>
+
+				<lightning-layout if:true={articleList} class={spacingClass}>
+					<lightning-layout-item>
+						<c-jc-article-stats
+							record={item}
+							show-views={showViews}
+							show-date={showDate}
+							show-topics={showTopics}
+						></c-jc-article-stats>
+					</lightning-layout-item>
+				</lightning-layout>
+			</section>
+			<hr key={item.id} />
+		</template>
+	</section>
+</template>

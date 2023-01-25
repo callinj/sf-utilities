@@ -1,0 +1,116 @@
+<template>
+	<!-- TODO talk to Jason about mix blending for the content box -->
+	<section class="jc-component slds-is-relative">
+		<!-- TODO Update visor to background -->
+		<div class={visorClass} if:true={showVisor}></div>
+		<lightning-layout
+			horizontal-align={contentHorizontalAlign}
+			vertical-align={contentVerticalAlign}
+			class={contentClass}
+		>
+			<!-- TODO | Add position: relative to this lli - only if:true={fixTopicsToTop}-->
+			<lightning-layout-item>
+				<!-- TODO | Add position: absolute if:true={fixTopicsToTop}-->
+				<lightning-layout class="slds-hide">
+					<lightning-layout-item flexibility="grow">
+						<slot name="top" onslotchange={handleSlotChange}></slot>
+					</lightning-layout-item>
+				</lightning-layout>
+				<!-- TODO | if:true={fixTopicsToTop} add top-margin: 19px; -->
+				<lightning-layout class="main-content">
+					<lightning-layout-item flexibility="grow">
+						<lightning-layout
+							horizontal-align="start"
+							vertical-align="center"
+							class="tile-heading"
+							if:true={heading}
+						>
+							<lightning-layout-item>
+								<c-jc-text
+									content-type="H2"
+									content-text={heading}
+									content-align={textAlign}
+									truncation={truncationHeading}
+									record-id={recordId}
+								></c-jc-text>
+							</lightning-layout-item>
+						</lightning-layout>
+
+						<template if:false={description}>
+							<slot name="description"></slot>
+						</template>
+						<lightning-layout
+							horizontal-align="start"
+							vertical-align="center"
+							class="tile-description"
+							if:true={description}
+						>
+							<lightning-layout-item>
+								<c-jc-text
+									content-type="P.lead"
+									content-text={description}
+									content-align={textAlign}
+									truncation={truncationDescription}
+									record-id={recordId}
+								></c-jc-text>
+							</lightning-layout-item>
+						</lightning-layout>
+
+						<slot name="stats"></slot>
+						<lightning-layout
+							class="tile-action"
+							horizontal-align={actionAlignment}
+							pull-to-boundary="small"
+							if:true={showActions}
+						>
+							<lightning-layout-item padding="horizontal-small" if:true={showFirstAction}>
+								<c-jc-action
+									label={firstActionText}
+									variant={firstActionVariant}
+									url={firstActionUrl}
+									border-radius={actionBorderRadius}
+									border-thickness={borderThickness}
+									custom-color={firstActionColor}
+									over-sized
+								></c-jc-action>
+							</lightning-layout-item>
+							<lightning-layout-item padding="horizontal-small" if:true={showSecondAction}>
+								<c-jc-action
+									label={secondActionText}
+									variant={secondActionVariant}
+									url={secondActionUrl}
+									border-radius={actionBorderRadius}
+									border-thickness={borderThickness}
+									custom-color={secondActionColor}
+									over-sized
+								></c-jc-action>
+							</lightning-layout-item>
+						</lightning-layout>
+					</lightning-layout-item>
+				</lightning-layout>
+				<lightning-layout class="slds-var-m-top_x-small slds-hide">
+					<lightning-layout-item flexibility="grow">
+						<slot name="bottom" onslotchange={handleSlotChange}></slot>
+					</lightning-layout-item>
+				</lightning-layout>
+				<!-- <slot name="sticky-bottom" onslotchange={handleSlotChange}></slot> -->
+				<lightning-layout
+					horizontal-align="end"
+					vertical-align="center"
+					class="action-icon sticky-bottom"
+					if:true={tileIcon.valid}
+				>
+					<lightning-layout-item>
+						<lightning-icon
+							icon-name={tileIcon.formatted}
+							size="large"
+							alternative-text={iconAssertiveText}
+							title={iconAssertiveText}
+							class="slds-current-color"
+						></lightning-icon>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+		</lightning-layout>
+	</section>
+</template>

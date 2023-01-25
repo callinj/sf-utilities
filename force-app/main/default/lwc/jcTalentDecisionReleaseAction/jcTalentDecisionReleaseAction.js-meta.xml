@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>JC Talent Decision Release Action</masterLabel>
+	<targets>
+		<target>lightningCommunity__Page</target>
+		<target>lightningCommunity__Default</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
+	</targets>
+    <targetConfigs>
+		<targetConfig targets="lightningCommunity__Default,lightning__AppPage,lightning__HomePage,lightning__RecordPage">
+            <property
+				name="actionType"
+				type="String"
+				label="Action Type"
+				description="Specify what kind of action this will be."
+				datasource="Release,Rollback"
+				default="Release"
+			/>
+            <property name="formTitle" type="String" label="Form Title" description="Specify the title of the form." />
+			<property
+				name="actionVariant"
+				type="String"
+				label="Button Variant"
+				description="Controls the main look and feel of the button"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+			/>
+            <property
+				name="actionLabel"
+				type="String"
+				label="Action Label"
+				description="Text that will display for the action."
+			/>
+			<property
+				name="actionLeftIcon"
+				type="String"
+				label="Select Left Icon"
+				description="Specify a SLDS icon to display on the button. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+            <property
+				name="actionRightIcon"
+				type="String"
+				label="Select Right Icon"
+				description="Specify a SLDS icon to display on the button. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+			<property
+				name="actionAlign"
+				type="String"
+				label="Action Alignment"
+				description="Controls the alignment of the action."
+				datasource="Left,Center,Right"
+				default="Left"
+			/>
+            <property
+				name="actionFullWidth"
+				type="Boolean"
+				label="Full Width"
+				description="Sets the button's width to fit the container."
+			/>
+            <property
+				name="actionOverSized"
+				type="Boolean"
+				label="Large Button"
+				description="Controls whether to display a bigger action."
+			/>
+            <property
+				name="actionUnderline"
+				type="Boolean"
+				label="Underline"
+				description="Controls whether or not to underline the text."
+			/>
+            <property
+				name="actionBorderRadius"
+				type="String"
+				label="Border Radius"
+				description="Defines the radius of the action's corners. Supports the following properties: length (https://w3schools.com/cssref/css_units.asp), %, em, rem, initial and inherit. For more information, visit https://w3schools.com/cssref/css3_pr_border-radius.asp"
+			/>
+            <property
+				name="actionBorderThickness"
+				type="String"
+				label="Border Thickness"
+				description="Controls the action's border thickness. Supports the following properties: length (https://w3schools.com/cssref/css_units.asp), medium, thin, thick, initial, inherit. For more information, visit https://w3schools.com/cssref/pr_border-width.asp"
+			/>
+            <property
+				name="actionCustomColor"
+				type="String"
+				label="Custom Color"
+				description="Controls the color of the action."
+			/>
+            <property
+				name="successMessage"
+				type="String"
+				label="Success Message"
+				description="Specify the success message."
+			/>
+			<property
+				name="customClasses"
+				type="String"
+				label="Add Custom Class Name(s)"
+				description="Use this attribute to easily add custom CSS classes to the component."
+			/>
+		</targetConfig>
+	</targetConfigs>
+</LightningComponentBundle>

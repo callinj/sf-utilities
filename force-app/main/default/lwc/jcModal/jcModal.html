@@ -1,0 +1,56 @@
+<template>
+	<section>
+		<section
+			class={modalClass}
+			role="dialog"
+			tabindex="-1"
+			aria-labelledby="modal-heading"
+			aria-modal="true"
+			aria-describedby="modal-content"
+		>
+			<div class="slds-modal__container">
+				<header class="slds-modal__header slds-modal__header_empty">
+					<lightning-button-icon
+						class="slds-modal__close close-button"
+						title="Close Modal"
+						alternative-text="Close Modal"
+						icon-name="utility:close"
+						variant="bare"
+						onclick={handleCancel}
+						size="large"
+					></lightning-button-icon>
+					<template if:false={title}>
+						<slot id="modal-heading" name="title" class="slds-hyphenate"></slot>
+					</template>
+					<c-jc-text
+						if:true={title}
+						content-type="h2"
+						content-text={title}
+						content-align="center"
+						no-space
+					></c-jc-text>
+				</header>
+				<div class="slds-modal__content slds-var-p-around_medium slds-is-relative" id="modal-content">
+					<slot></slot>
+				</div>
+				<footer class="slds-modal__footer">
+					<slot name="footer">
+						<lightning-layout horizontal-align="end" pull-to-boundary="small">
+							<lightning-layout-item padding="horizontal-small">
+								<c-jc-action
+									label={cancelButton}
+									variant="neutral"
+									onclick={handleCancel}
+								></c-jc-action>
+							</lightning-layout-item>
+							<lightning-layout-item padding="horizontal-small">
+								<c-jc-action label={acceptButton} variant="brand" onclick={handleAccept}></c-jc-action>
+							</lightning-layout-item>
+						</lightning-layout>
+					</slot>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</section>
+</template>

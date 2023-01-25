@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Article Card List</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="articleType"
+				type="String"
+				label="Select Knowledge Record/Article Type"
+				description="If using Lightning Knowledge this will be the record type that the articles will be filtered by. If using Classic Knowledge this it the article type the articles will be filtered by"
+				datasource="apex://JCArticleController"
+			/>
+            <!-- <property name="listType" type="String" label="Select List Type" datasource="Accordion List, Banner List, Basic List" default="Basic List" /> -->
+            <property
+				name="showViews"
+				type="Boolean"
+				label="Show View Count"
+				default="true"
+				description="When checked the article view count will display"
+			/>
+            <property
+				name="showDate"
+				type="Boolean"
+				label="Show Date"
+				default="true"
+				description="When checked the date the article was last published will display"
+			/>
+            <property
+				name="showTopics"
+				type="Boolean"
+				label="Show Topics"
+				default="true"
+				description="When checked the topics that are assigned to the article will be displayed"
+			/>
+            <property
+				name="showSummary"
+				type="Boolean"
+				label="Show Article Summary"
+				default="true"
+				description="When checked the article summary will be displayed"
+			/>
+            <property
+				name="showSortOptions"
+				type="Boolean"
+				label="Show Article Sorting"
+				default="true"
+				description="When checked the article sort options will be available"
+			/>
+            <property
+				name="defaultSortOrder"
+				type="String"
+				label="Default Sort Order"
+				description="This will control how the articles will be sorted when the page is loaded"
+				datasource="Trending,A^,Z^,Recent,Most Viewed"
+				default="Recent"
+			/>
+            <property
+				name="topicCount"
+				type="String"
+				label="Topic Count"
+				datasource="All,None,1,2,3,4,5"
+				default="3"
+				description="Specifies the max amount of topics to display. Defaults to 3."
+			/>
+            <property
+				name="topicPosition"
+				type="String"
+				label="Topic Position"
+				datasource="Top,Bottom"
+				default="Top"
+				description="Specifies if the topics should be at the top or bottom of the tile/card."
+			/>
+            <property
+				name="columns"
+				type="String"
+				label="Columns"
+				datasource="1,2,3,4,6"
+				default="2"
+				description="Specifies the number of columns in the layout."
+			/>
+            <!-- <property
+                name="tightenSpacing"
+                type="Boolean"
+                label="Tighten Spacing"
+                description="Tightens the spacing between the end of the content and the horizontal rule. NOTE: This setting only applies to Accordion List and Basic List types"
+            /> -->
+            <!-- <property
+                name="enableAccordion"
+                type="Boolean"
+                label="Enable Accordion"
+                description="If checked, displays the articles in a lightning-accordion view. (Disregards the 'Enable Preview' option."
+            /> -->
+            <!-- <property
+                name="showViewArticle"
+                type="Boolean"
+                label="Show View Article Link"
+                description="If checked, displays a link to navigate to article page. NOTE: This setting only applies to the Accordion List type"
+            /> -->
+            <property
+				name="enablePreview"
+				type="Boolean"
+				label="Enable Preview"
+				description="If checked, displays article in modal instead of navigation to record page."
+			/>
+            <property
+				name="paginationLocation"
+				type="String"
+				label="Pagination Location"
+				datasource="Top,Bottom,Both,None"
+				default="Bottom"
+				description="Control where the list pagination will be displayed in relation to the list"
+			/>
+			<property
+				name="previousButton"
+				type="String"
+				label="Previous Button Text"
+				default="utility:chevronleft Prev"
+				description="This sets the text for the previous pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="nextButton"
+				type="String"
+				label="Next Button Text"
+				default="Next utility:chevronright"
+				description="This sets the text for the next pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="showAsButtons"
+				type="Boolean"
+				label="Display Pagination As Buttons"
+				default="true"
+				description="Specifies if the pagination buttons should be visually displayed as buttons or links. NOTE: This setting only applies if pagination is being displayed"
+			/>
+			<property
+				name="largeButtons"
+				type="Boolean"
+				label="Make Pagination Buttons Large"
+				description="Displays the pagination buttons as large buttons. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="pageSizeOptions"
+				type="String"
+				label="Page Size Options"
+				default="5,10,25,50"
+				description="This is a comma seperated list that controls pagination page size options. The default page size will default to value in the list. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="defaultBackground"
+				type="String"
+				label="Default Background Image"
+				description="Specifies the default background image for the tiles."
+			/>
+            <property
+				name="contentAlign"
+				type="String"
+				label="Content Align"
+				datasource="Top - Left,Top - Center,Top - Right,Center - Left,Center - Center,Center - Right,Bottom - Left,Bottom - Center,Bottom - Right"
+				default="Center - Center"
+				description="This will control where the content will be displayed within the banner."
+			/>
+            <property
+				name="textAlignment"
+				type="String"
+				label="Text Alignment"
+				datasource="Left,Center,Right"
+				default="Left"
+				description="This will control the horizontal alignment of the text."
+			/>
+            <property
+				name="truncateTitle"
+				type="String"
+				label="Truncate Title by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the article title specified by however many lines user selects."
+			/>
+            <property
+				name="truncateSummary"
+				type="String"
+				label="Truncate Summary by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the article summary specified by however many lines user selects."
+			/>
+            <property
+				name="imageScale"
+				type="String"
+				label="Image Scale"
+				default="Cover"
+				description='This controls the background image size. This can be "contain", "cover" or a numerical value. If using a numerical value you can specify one, "50%", or two which correspond with "width height", "50% 100%". For more information visit: https://www.w3schools.com/cssref/css3_pr_background-size.asp.'
+			/>
+            <property
+				name="imagePosition"
+				type="String"
+				label="Image Position"
+				default="Center - Center"
+				description="This will control this position of the image."
+			/>
+			<property
+				name="visorColor"
+				type="String"
+				label="Tile/Card Visor Color"
+				description="Defaults to community brand color. This is the background color for the visor. This will display a color over the background color/image. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp."
+			/>
+			<property
+				name="visorColorHover"
+				type="String"
+				label="Tile/Card Visor Hover Color"
+				description="Defaults to the specified visor color. This is the background color for the visor when hovered. This will display a color over the background color/image. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp."
+			/>
+            <property
+				name="visorOpacity"
+				type="String"
+				label="Visor Opacity"
+				description='To hide visor, enter 0 or leave blank. If there is a visor color specified this will set the opacity of that background color. If the visor has an alpha value set, this will override that alpha value. This field accepts percentage values, "50%", "50", .5. If entered value doesn&apos;t have a "%" and the number is greated than 1, then the value will be converted to a percent, "5.25" will be converted to ".525".'
+				default=".5"
+			/>
+			<property
+				name="tileIcon"
+				type="String"
+				label="Icon"
+				description="Specify a SLDS icon to display on the grid item. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+            <property
+				name="iconColor"
+				type="String"
+				label="Tile/Card Icon Color"
+				description="Defaults to the tile/card font color. This is the color for the icon. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp."
+			/>
+            <property
+				name="iconHoverColor"
+				type="String"
+				label="Tile/Card Icon Hover Color"
+				description="Defaults to community brand color. This is the color for the icon. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp."
+			/>
+            <property
+				name="darkFont"
+				type="Boolean"
+				label="Dark Font?"
+				description="This controls the content text color. If checked, the content will be displayed in a dark font color."
+			/>
+            <property
+				name="showBorder"
+				type="Boolean"
+				label="Add Border To Tiles/Cards"
+				description="When checked this will add a border around the tile/card."
+			/>
+            <property
+				name="borderColor"
+				type="String"
+				label="Tile/Card Border Color"
+				description="Defaults to community brand color. This is the background color for the visor. This will display a color over the background color. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp."
+			/>
+			<property
+				name="borderRadius"
+				type="String"
+				label="Tile/Card Border Radius"
+				description="This is the amount the tile/cards will be rounded on each corner."
+			/>
+            <property
+				name="visorBlendMode"
+				type="String"
+				label="Visor Blend Mode"
+				datasource="Normal,Multiply,Screen,Overlay,Darken,Lighten,Color-Dodge,Color-Burn,Hard-Light,Soft-Light,Difference,Exclusion,Hue,Saturation,Color,Luminosity"
+				default="Normal"
+				description="This controls how the visor should blend with the image. For more information visit: https://www.w3schools.com/cssref/pr_mix-blend-mode.asp."
+			/>
+            <property
+				name="imageHeight"
+				type="String"
+				label="Image Height"
+				default="250px"
+				description="Specifies the height of the tiles. The height can be specified in pixels, em, rem, percentages."
+			/>
+			<property
+				name="gutterSize"
+				type="String"
+				label="Custom Gutter Size"
+				description="Enter custom gutter size between the tiles. *NOTE: This space is added around each tile, so a gutter size of 5px would add 10px between the tiles.*"
+			/>
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message user sees when no results are returned."
+				default="No Articles Found"
+			/>
+            <property
+				name="searchIdentifier"
+				type="String"
+				label="Search Identifier"
+				description="Identify the Search Identifier to communicate with partner component.  Search Identifier must be the exact same as it's partner component."
+			/>
+            <property
+				name="definedTopics"
+				type="String"
+				label="Predefined Filtered Topics"
+				description="Enter a list of Topic names in a comma-separated list to filter articles assigned to those topics"
+			/>
+            <property
+				name="customClasses"
+				type="String"
+				label="Add Custom Class Name(s)"
+				description="Use this attribute to easily add custom CSS classes to the component."
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Feedback List</masterLabel>
+    <description
+	>Dynamic list for rendering Conversations, Feedback, Self-Reflection and Provided Feedback within the Performance Achievement Tool.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="listType"
+				type="String"
+				label="List Type"
+				description="Specify the type of records to be returned."
+				datasource="Provided,Conversations,Feedback,Self"
+			/>
+            <property
+				name="columnWidthsMode"
+				type="String"
+				label="Column Widths Mode"
+				description="Set column widths automatically based on content (auto) or evenly (fixed)."
+				datasource="Auto,Fixed"
+			/>
+            <property
+				name="columnWidth"
+				type="Integer"
+				label="Column Width (pixels)"
+				description="Specify the column width in pixels."
+				min="0"
+			/>
+            <property
+				name="firstColumnHeader"
+				type="String"
+				label="First Column Header"
+				description="Specify the first column's header."
+				default="First Column Header"
+			/>
+            <property
+				name="secondColumnHeader"
+				type="String"
+				label="Second Column Header"
+				description="Specify the second column's header."
+				default="Second Column Header"
+			/>
+            <property
+				name="showTableHeader"
+				type="Boolean"
+				label="Show Table Header"
+				description="If checked, will display the table's header."
+				default="true"
+			/>
+            <property
+				name="enableColumnResizing"
+				type="Boolean"
+				label="Enable Column Resizing"
+				description="If checked, will enable column resizing."
+			/>
+            <property
+				name="showCheckboxes"
+				type="Boolean"
+				label="Show Checkbox Column"
+				description="If checked, will display the checkbox column."
+			/>
+            <property
+				name="showRowNumbers"
+				type="Boolean"
+				label="Show Row Numbers"
+				description="If checked, will display the row number column."
+				default="true"
+			/>
+            <property
+				name="enablePaginationFeature"
+				type="Boolean"
+				label="Enable Pagination Feature"
+				description="Displays pagination only if the number of results exceeds the selected Page Size Option"
+			/>
+            <property
+				name="pageSizeOptions"
+				type="String"
+				label="Page Size Options"
+				default="5,10,25,50"
+				description="This is a comma seperated list that controls pagination page size options. The default page size will be the first value in the list. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="previousButton"
+				type="String"
+				label="Previous Button Text"
+				default="utility:chevronleft Prev"
+				description="This sets the text for the previous pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="nextButton"
+				type="String"
+				label="Next Button Text"
+				default="Next utility:chevronright"
+				description="This sets the text for the next pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="showAsButtons"
+				type="Boolean"
+				label="Display Pagination As Buttons"
+				default="true"
+				description="Specifies if the pagination buttons should be visually displayed as buttons or links. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="largeButtons"
+				type="Boolean"
+				label="Make Pagination Buttons Large"
+				description="Displays the pagination buttons as large buttons. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message to Display When There Is No Data"
+				default="No Records Found"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

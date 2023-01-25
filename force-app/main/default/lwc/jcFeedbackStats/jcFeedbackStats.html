@@ -1,0 +1,39 @@
+<template>
+	<div class="slds-var-m-bottom_medium">
+		<c-jc-text content-type="H5" content-text={headerText} content-align="left" no-space></c-jc-text>
+		<c-jc-text content-type="p" content-text={descriptionText} content-align="left" no-space></c-jc-text>
+	</div>
+	<lightning-layout horizontal-align="spread">
+		<lightning-layout-item class="slds-var-p-right_small">
+			<lightning-layout>
+				<lightning-layout-item class="slds-var-p-right_medium">
+					<c-jc-text content-type="h6" content-text={receivedText} content-align="left" no-space></c-jc-text>
+				</lightning-layout-item>
+				<lightning-layout-item>
+					<c-jc-text
+						content-type="h6"
+						content-text={receivedStatsNumber}
+						content-align="left"
+						no-space
+					></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+		</lightning-layout-item>
+
+		<lightning-layout-item>
+			<lightning-layout>
+				<lightning-layout-item class="slds-var-p-right_medium">
+					<c-jc-text content-type="h6" content-text={givenText} content-align="left" no-space></c-jc-text>
+				</lightning-layout-item>
+				<lightning-layout-item>
+					<c-jc-text
+						content-type="h6"
+						content-text={givenStatsNumber}
+						content-align="left"
+						no-space
+					></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+		</lightning-layout-item>
+	</lightning-layout>
+</template>

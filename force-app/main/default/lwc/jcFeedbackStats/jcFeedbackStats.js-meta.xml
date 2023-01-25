@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Feedback Stats</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="feedbackType"
+				type="String"
+				label="Feedback Type"
+				description="Select the type of feedback stats to display"
+				datasource="Conversation,Feedback"
+			/>
+            <property name="headerText" type="String" label="Header Text" description="Text to display in the header" />
+            <property
+				name="descriptionText"
+				type="String"
+				label="Description Text"
+				description="Text to display underneath the header"
+			/>
+            <property
+				name="receivedText"
+				type="String"
+				label="Received Text"
+				description="Text to display in the 'Received' column [left]"
+			/>
+            <property
+				name="givenText"
+				type="String"
+				label="Given Text"
+				description="Text to display in the 'Given' column [right]"
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

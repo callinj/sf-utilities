@@ -1,0 +1,28 @@
+<template>
+	<div class="jc-component slds-is-relative">
+		<lightning-spinner variant="brand" alternative-text="Loading..." if:false={isLoaded}></lightning-spinner>
+
+		<lightning-input
+			if:true={showSearch}
+			class="slds-var-m-bottom_medium"
+			type="search"
+			placeholder={placeholder}
+			variant="label-hidden"
+			oncommit={handleChange}
+		></lightning-input>
+		<lightning-tree
+			if:true={displayRecords}
+			items={topicTree}
+			onselect={handleSelected}
+			selected-item={selected}
+		></lightning-tree>
+
+		<!-- Display Zero State Message -->
+		<c-jc-text
+			if:false={displayRecords}
+			content-type="p.lead"
+			content-text={zeroStateMessage}
+			content-align="Center"
+		></c-jc-text>
+	</div>
+</template>

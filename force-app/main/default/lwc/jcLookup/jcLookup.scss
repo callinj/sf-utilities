@@ -1,0 +1,13 @@
+@use '~../variables' as *;
+:host {
+	.search-action {
+		position: absolute;
+		right: $spacing-none;
+		z-index: 2;
+	}
+	.dropdown-list {
+		width: 100%;
+		max-width: 100%;
+		overflow-y: auto;
+	}
+}

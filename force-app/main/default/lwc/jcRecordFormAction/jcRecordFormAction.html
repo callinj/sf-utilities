@@ -1,0 +1,75 @@
+<template>
+	<div class="jc-component">
+		<c-jc-action
+			variant={actionVariant}
+			label={actionLabel}
+			left-icon={actionLeftIcon}
+			right-icon={actionRightIcon}
+			action-align={actionAlign}
+			full-width={actionFullWidth}
+			over-sized={actionOverSized}
+			underline={actionUnderline}
+			border-radius={actionBorderRadius}
+			border-thickness={actionBorderThickness}
+			custom-color={actionCustomColor}
+			if:true={showAction}
+			onactionclicked={actionClick}
+		></c-jc-action>
+		<c-jc-modal size="small" accept-button="Save" oncancel={handleClose} if:true={showForm}>
+			<lightning-layout horizontal-align="center" vertical-align="center" slot="title" if:true={formTitle}>
+				<lightning-layout-item>
+					<c-jc-text content-type="H3" content-text={formTitle}></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+			<lightning-layout horizontal-align="center" vertical-align="center" slot="title" if:true={formDescription}>
+				<lightning-layout-item>
+					<c-jc-text content-type="p" content-text={formDescription}></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+
+			<c-jc-record-detail
+				record-id={recordId}
+				object-name={objectName}
+				default-values={defaultValues}
+				record-type-label={recordTypeLabel}
+				enable-upload={enableUpload}
+				disable-redirect={disableRedirect}
+				disabled-fields={disabledFields}
+				success-message={successMessage}
+				onload={handleLoad}
+				onclose={handleClose}
+				is-edit-mode={isEditMode}
+			>
+			</c-jc-record-detail>
+
+			<lightning-layout horizontal-align="end" pull-to-boundary="small" slot="footer">
+				<lightning-layout-item padding="horizontal-small">
+					<c-jc-action
+						label="Cancel"
+						variant="neutral"
+						onclick={handleClose}
+						disabled={actionsDisabled}
+					></c-jc-action>
+				</lightning-layout-item>
+				<lightning-layout-item padding="horizontal-small" if:true={displaySaveNew}>
+					<c-jc-action
+						label="Save &amp; New"
+						variant="neutral"
+						onclick={submitForm}
+						data-name="new"
+						disabled={actionsDisabled}
+					></c-jc-action>
+				</lightning-layout-item>
+				<lightning-layout-item padding="horizontal-small">
+					<c-jc-action
+						label="Save"
+						variant="brand"
+						onclick={submitForm}
+						data-name="save"
+						disabled={actionsDisabled}
+					></c-jc-action>
+				</lightning-layout-item>
+			</lightning-layout>
+		</c-jc-modal>
+	</div>
+</template>

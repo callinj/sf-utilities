@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Banner</masterLabel>
+    <description>Select which style of banner you would like from the options below.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="heading"
+				type="String"
+				label="Heading Text"
+				description="Text that will be displayed as the heading."
+			/>
+            <property
+				name="description"
+				type="String"
+				label="Description Text"
+				description="Text that will be displayed as the description."
+			/>
+            <property
+				name="firstActionText"
+				type="String"
+				label="Primary Action Text"
+				description="This is the text that will be displayed for the primary action."
+			/>
+            <property
+				name="firstActionUrl"
+				type="String"
+				label="Primary Action URL"
+				description="URL that the primary action will navigate to."
+			/>
+			<property
+				name="firstActionVariant"
+				type="String"
+				label="Primary Action Variant"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+				description="Controls the primary action's variant."
+			/>
+			<property
+				name="firstActionColor"
+				type="String"
+				label="Primary Action Custom Color"
+				description="Controls the color of the primary action."
+			/>
+            <property
+				name="secondActionText"
+				type="String"
+				label="Secondary Action Text"
+				description="This is the text that will be displayed for the secondary action."
+			/>
+            <property
+				name="secondActionUrl"
+				type="String"
+				label="Secondary Action URL"
+				description="URL that the secondary call to action will navigate to."
+			/>
+            <property
+				name="secondActionVariant"
+				type="String"
+				label="Secondary Action Variant"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+				description="Controls the secondary action's variant."
+			/>
+			<property
+				name="secondActionColor"
+				type="String"
+				label="Secondary Action Custom Color"
+				description="Controls the color of the secondary action."
+			/>
+            <property
+				name="borderThickness"
+				type="String"
+				label="Action's Border Thickness"
+				description="Controls the button's border thickness. Valid values are: thin, medium, thick, initial, inherit.  Otherwise you can specify using px, em, etc."
+			/>
+			<property
+				name="borderRadius"
+				type="String"
+				label="Actions's Border Radius"
+				description="Controls the radius of both buttons."
+			/>
+            <property
+				name="contentAlign"
+				type="String"
+				label="Content Align"
+				description="This will control where the content will be displayed within the banner."
+				datasource="Top - Left, Top - Center, Top - Right, Middle - Left, Middle - Center, Middle - Right, Bottom - Left, Bottom - Center, Bottom - Right"
+			/>
+            <property
+				name="textAlign"
+				type="String"
+				label="Text Align"
+				description="Controls the alignment of the text."
+				datasource="Left,Center,Right"
+			/>
+            <property
+				name="truncationHeading"
+				type="String"
+				label="Truncate Heading by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the heading specified by however many lines user selects."
+			/>
+            <property
+				name="truncationDescription"
+				type="String"
+				label="Truncate Description by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the description specified by however many lines user selects."
+			/>
+            <property
+				name="imageUrl"
+				type="String"
+				label="Image URL"
+				description="Url that the background image will point to."
+			/>
+            <property
+				name="backgroundSize"
+				type="String"
+				label="Image Size"
+				description='This controls the background image size. This can be "contain", "cover" or a numerical value. If using a numerical value you can specify one, "50%", or two which correspond with "width height", "50% 100%". For more information visit: https://www.w3schools.com/cssref/css3_pr_background-size.asp'
+			/>
+            <property
+				name="backgroundPosition"
+				type="String"
+				label="Image Position"
+				description="This will control this position of the image."
+			/>
+			<property
+				name="backgroundRepeat"
+				type="String"
+				label="Image Repeat"
+				description="This will control whether the image will repeat to fill the excess space."
+				default="no-repeat"
+			/>
+			<property
+				name="backgroundAttachment"
+				type="String"
+				label="Image Attachment Type"
+				description="This will control how the image acts when the page is scrolled"
+				datasource="Fixed,Local,None,Scroll"
+				default="None"
+			/>
+            <property
+				name="visorColor"
+				type="String"
+				label="Visor Color"
+				description="Defaults to community brand color. This is the background color for the visor. This will display a color over the background color. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp"
+			/>
+            <property
+				name="visorOpacity"
+				type="String"
+				label="Visor Opacity"
+				description='To hide visor, enter 0 or leave blank. If there is a visor color specified this will set the opacity of that background color. If the visor has an alpha value set, this will override that alpha value. This field accepts percentage values, "50%", "50", .5. If entered value doesn&apos;t have a "%" and the number is greated than 1, then the value will be converted to a percent, "5.25" will be converted to ".0525"'
+				default="1"
+			/>
+            <property
+				name="darkFont"
+				type="Boolean"
+				label="Dark Font?"
+				description="This controls the content text color. If checked the content will be displayed in a dark font color."
+			/>
+            <property
+				name="blendMode"
+				type="String"
+				label="Visor Blend Mode"
+				description="This controls how the visor should blend with the image. For more information visit: https://www.w3schools.com/cssref/pr_mix-blend-mode.asp"
+				datasource="Normal, Multiply, Screen, Overlay, Darken, Lighten, Color-Dodge, Color-Burn, Difference, Exclusion, Hue, Saturation, Color, Luminosity"
+			/>
+            <property
+				name="bannerHeight"
+				type="String"
+				label="Banner Height"
+				description="This specifies the height of the banner. The height can be specified in pixels, em, rem, percentages"
+			/>
+            <property
+				name="hasRoundedCorners"
+				type="Boolean"
+				label="Add Rounded Corners?"
+				description="When checked this will round the corners of the banner."
+			/>
+            <property
+				name="hasBorder"
+				type="Boolean"
+				label="Add Border?"
+				description="When checked this will add a border around the banner."
+			/>
+            <property
+				name="hasShadow"
+				type="Boolean"
+				label="Add Shadow?"
+				description="When checked this will add a shadow around the banner."
+			/>
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Component Bottom Margin"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce"
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+            <property
+				name="recordId"
+				type="String"
+				label="Record Id"
+				description="Reference a record id. This defaults to {!recordId} this will allow the component to reference the current record data when placed on a record detail page. You may also hardcode a record id, however that is not recommended."
+				default="{!recordId}"
+			/>
+        </targetConfig>
+        <targetConfig targets="lightning__HomePage,lightning__RecordPage,lightning__AppPage">
+            <property
+				name="heading"
+				type="String"
+				label="Heading Text"
+				description="Text that will be displayed as the heading."
+			/>
+            <property
+				name="description"
+				type="String"
+				label="Description Text"
+				description="Text that will be displayed as the description."
+			/>
+            <property
+				name="firstActionText"
+				type="String"
+				label="First Action Text"
+				description="This is the text that will be displayed for the first action."
+			/>
+            <property
+				name="firstActionUrl"
+				type="String"
+				label="First Action URL"
+				description="URL that the first call to action will navigate to."
+			/>
+            <property
+				name="secondActionText"
+				type="String"
+				label="Second Action Text"
+				description="This is the text that will be displayed for the second action."
+			/>
+            <property
+				name="secondActionUrl"
+				type="String"
+				label="Second Action URL"
+				description="URL that the second call to action will navigate to."
+			/>
+            <property
+				name="borderRadius"
+				type="String"
+				label="Actions's Border Radius"
+				description="Controls the radius of both buttons."
+			/>
+            <property
+				name="borderThickness"
+				type="String"
+				label="Action's Border Thickness"
+				description="Controls the button's border thickness. Valid values are: thin, medium, thick, initial, inherit.  Otherwise you can specify using px, em, etc."
+			/>
+            <property
+				name="firstActionVariant"
+				type="String"
+				label="First Action Variant"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+				description="Controls the first action's variant."
+			/>
+            <property
+				name="secondActionVariant"
+				type="String"
+				label="Second Action Variant"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+				description="Controls the second action's variant."
+			/>
+            <property
+				name="contentAlign"
+				type="String"
+				label="Content Align"
+				description="This will control where the content will be displayed within the banner."
+				datasource="Top - Left, Top - Center, Top - Right, Middle - Left, Middle - Center, Middle - Right, Bottom - Left, Bottom - Center, Bottom - Right"
+			/>
+            <property
+				name="textAlign"
+				type="String"
+				label="Text Align"
+				description="Controls the alignment of the text."
+				datasource="Left,Center,Right"
+			/>
+            <property
+				name="truncationHeading"
+				type="String"
+				label="Truncate Heading by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the heading specified by however many lines user selects."
+			/>
+            <property
+				name="truncationDescription"
+				type="String"
+				label="Truncate Description by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the description specified by however many lines user selects."
+			/>
+            <property
+				name="imageUrl"
+				type="String"
+				label="Image URL"
+				description="Url that the background image will point to."
+			/>
+            <property
+				name="backgroundSize"
+				type="String"
+				label="Image Size"
+				description='This controls the background image size. This can be "contain", "cover" or a numerical value. If using a numerical value you can specify one, "50%", or two which correspond with "width height", "50% 100%". For more information visit: https://www.w3schools.com/cssref/css3_pr_background-size.asp'
+			/>
+            <property
+				name="backgroundPosition"
+				type="String"
+				label="Image Position"
+				description="This will control this position of the image."
+				datasource="Left - Top, Left - Center, Left - Bottom, Center - Top, Center - Center, Center - Bottom, Right - Top, Right - Center, Right - Bottom"
+			/>
+            <property
+				name="visorColor"
+				type="String"
+				label="Visor Color"
+				description="Defaults to community brand color. This is the background color for the visor. This will display a color over the background color. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp"
+			/>
+            <property
+				name="visorOpacity"
+				type="String"
+				label="Visor Opacity"
+				description='To hide visor, enter 0 or leave blank. If there is a visor color specified this will set the opacity of that background color. If the visor has an alpha value set, this will override that alpha value. This field accepts percentage values, "50%", "50", .5. If entered value doesn&apos;t have a "%" and the number is greated than 1, then the value will be converted to a percent, "5.25" will be converted to ".525"'
+				default="1"
+			/>
+            <property
+				name="darkFont"
+				type="Boolean"
+				label="Dark Font?"
+				description="This controls the content text color. If checked the content will be displayed in a dark font color."
+			/>
+            <property
+				name="blendMode"
+				type="String"
+				label="Visor Blend Mode"
+				description="This controls how the visor should blend with the image. For more information visit: https://www.w3schools.com/cssref/pr_mix-blend-mode.asp"
+				datasource="Normal, Multiply, Screen, Overlay, Darken, Lighten, Color-Dodge, Color-Burn, Difference, Exclusion, Hue, Saturation, Color, Luminosity"
+			/>
+            <property
+				name="bannerHeight"
+				type="String"
+				label="Banner Height"
+				description="This specifies the height of the banner. The height can be specified in pixels, em, rem, percentages"
+			/>
+            <property
+				name="hasRoundedCorners"
+				type="Boolean"
+				label="Add Rounded Corners?"
+				description="When checked this will round the corners of the banner."
+			/>
+            <property
+				name="hasBorder"
+				type="Boolean"
+				label="Add Border?"
+				description="When checked this will add a border around the banner."
+			/>
+            <property
+				name="hasShadow"
+				type="Boolean"
+				label="Add Shadow?"
+				description="When checked this will add a shadow around the banner."
+			/>
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Component Bottom Margin"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce"
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+        <targetConfig targets="lightning__FlowScreen">
+            <property
+				name="heading"
+				type="String"
+				label="Heading Text"
+				description="Text that will be displayed as the heading."
+				role="inputOnly"
+			/>
+            <property
+				name="description"
+				type="String"
+				label="Description Text"
+				description="Text that will be displayed as the description."
+				role="inputOnly"
+			/>
+            <property
+				name="firstActionText"
+				type="String"
+				label="First Action Text"
+				description="This is the text that will be displayed for the first action."
+				role="inputOnly"
+			/>
+            <property
+				name="firstActionUrl"
+				type="String"
+				label="First Action URL"
+				description="URL that the first call to action will navigate to."
+				role="inputOnly"
+			/>
+            <property
+				name="secondActionText"
+				type="String"
+				label="Second Action Text"
+				description="This is the text that will be displayed for the second action."
+				role="inputOnly"
+			/>
+            <property
+				name="secondActionUrl"
+				type="String"
+				label="Second Action URL"
+				description="URL that the second call to action will navigate to."
+				role="inputOnly"
+			/>
+            <property
+				name="borderRadius"
+				type="String"
+				label="Actions's Border Radius"
+				description="Controls the radius of both buttons."
+				role="inputOnly"
+			/>
+            <property
+				name="borderThickness"
+				type="String"
+				label="Action's Border Thickness"
+				description="Controls the button's border thickness. Valid values are: thin, medium, thick, initial, inherit.  Otherwise you can specify using px, em, etc."
+				role="inputOnly"
+			/>
+            <property
+				name="firstActionVariant"
+				type="String"
+				label="First Action Variant"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+				description="Controls the first action's variant."
+				role="inputOnly"
+			/>
+            <property
+				name="secondActionVariant"
+				type="String"
+				label="Second Action Variant"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+				description="Controls the second action's variant."
+				role="inputOnly"
+			/>
+            <property
+				name="contentAlign"
+				type="String"
+				label="Content Align"
+				description="This will control where the content will be displayed within the banner."
+				datasource="Top - Left, Top - Center, Top - Right, Middle - Left, Middle - Center, Middle - Right, Bottom - Left, Bottom - Center, Bottom - Right"
+				role="inputOnly"
+			/>
+            <property
+				name="textAlign"
+				type="String"
+				label="Text Align"
+				description="Controls the alignment of the text."
+				datasource="Left,Center,Right"
+				role="inputOnly"
+			/>
+            <property
+				name="truncationHeading"
+				type="String"
+				label="Truncate Heading by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the heading specified by however many lines user selects."
+				role="inputOnly"
+			/>
+            <property
+				name="truncationDescription"
+				type="String"
+				label="Truncate Description by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the description specified by however many lines user selects."
+				role="inputOnly"
+			/>
+            <property
+				name="imageUrl"
+				type="String"
+				label="Image URL"
+				description="Url that the background image will point to."
+				role="inputOnly"
+			/>
+            <property
+				name="backgroundSize"
+				type="String"
+				label="Image Size"
+				description='This controls the background image size. This can be "contain", "cover" or a numerical value. If using a numerical value you can specify one, "50%", or two which correspond with "width height", "50% 100%". For more information visit: https://www.w3schools.com/cssref/css3_pr_background-size.asp'
+				role="inputOnly"
+			/>
+            <property
+				name="backgroundPosition"
+				type="String"
+				label="Image Position"
+				description="This will control this position of the image."
+				datasource="Left - Top, Left - Center, Left - Bottom, Center - Top, Center - Center, Center - Bottom, Right - Top, Right - Center, Right - Bottom"
+				role="inputOnly"
+			/>
+            <property
+				name="visorColor"
+				type="String"
+				label="Visor Color"
+				description="Defaults to community brand color. This is the background color for the visor. This will display a color over the background color. This supports all legal CSS color values, even alpha color values. For more information visit: https://www.w3schools.com/cssref/css_colors_legal.asp"
+			/>
+            <property
+				name="visorOpacity"
+				type="String"
+				label="Visor Opacity"
+				description='To hide visor, enter 0 or leave blank. If there is a visor color specified this will set the opacity of that background color. If the visor has an alpha value set, this will override that alpha value. This field accepts percentage values, "50%", "50", .5. If entered value doesn&apos;t have a "%" and the number is greated than 1, then the value will be converted to a percent, "5.25" will be converted to ".525"'
+				default="1"
+				role="inputOnly"
+			/>
+            <property
+				name="darkFont"
+				type="Boolean"
+				label="Dark Font?"
+				description="This controls the content text color. If checked the content will be displayed in a dark font color."
+				role="inputOnly"
+			/>
+            <property
+				name="blendMode"
+				type="String"
+				label="Visor Blend Mode"
+				description="This controls how the visor should blend with the image. For more information visit: https://www.w3schools.com/cssref/pr_mix-blend-mode.asp"
+				datasource="Normal, Multiply, Screen, Overlay, Darken, Lighten, Color-Dodge, Color-Burn, Difference, Exclusion, Hue, Saturation, Color, Luminosity"
+				role="inputOnly"
+			/>
+            <property
+				name="bannerHeight"
+				type="String"
+				label="Banner Height"
+				description="This specifies the height of the banner. The height can be specified in pixels, em, rem, percentages"
+				role="inputOnly"
+			/>
+            <property
+				name="hasRoundedCorners"
+				type="Boolean"
+				label="Add Rounded Corners?"
+				description="When checked this will round the corners of the banner."
+				role="inputOnly"
+			/>
+            <property
+				name="hasBorder"
+				type="Boolean"
+				label="Add Border?"
+				description="When checked this will add a border around the banner."
+				role="inputOnly"
+			/>
+            <property
+				name="hasShadow"
+				type="Boolean"
+				label="Add Shadow?"
+				description="When checked this will add a shadow around the banner."
+				role="inputOnly"
+			/>
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Component Bottom Margin"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce"
+				role="inputOnly"
+			/>
+            <property
+				name="customClass"
+				type="String"
+				label="Add Class"
+				description="Custom CSS class name(s)."
+				role="inputOnly"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

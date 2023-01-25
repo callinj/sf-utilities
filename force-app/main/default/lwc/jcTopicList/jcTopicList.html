@@ -1,0 +1,67 @@
+<template>
+	<div class="jc-component slds-is-relative">
+		<lightning-spinner variant="brand" alternative-text="Loading..." if:false={isLoaded}></lightning-spinner>
+
+		<!-- Show top pagination -->
+		<div class="slds-var-m-top_medium" if:true={showTopPagination}>
+			<c-jc-pagination
+				if:true={displayRecords}
+				total-items={topicsLength}
+				onupdate={handlePaginatorChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={showAsButtons}
+				large-buttons={largeButtons}
+			></c-jc-pagination>
+		</div>
+
+		<!-- Records to Display -->
+		<section>
+			<template if:true={displayRecords}>
+				<c-jc-basic-list
+					items={topics}
+					show-summary={showTopicDescription}
+					show-follower-count={showFollowerCount}
+					show-article-count={showArticleCount}
+					show-discussion-count={showDiscussionCount}
+					show-follow-button={showFollowButton}
+					show-follow-separator={showFollowSeparator}
+					align-follow-separator={alignFollowSeparator}
+					tighten-spacing={tightenSpacing}
+					featured-text={featuredText}
+					sort-options="A^,Z^"
+					default-sort={sortOption}
+					onupdate={handleSortOption}
+					topic-list
+				></c-jc-basic-list>
+			</template>
+
+			<!-- Display Zero State Message -->
+			<c-jc-text
+				if:false={displayRecords}
+				content-type="p.lead"
+				content-text={zeroStateMessage}
+				content-align="center"
+			></c-jc-text>
+		</section>
+
+		<!-- Show bottom pagination-->
+		<div class="slds-var-m-top_medium" if:true={showBottomPagination}>
+			<c-jc-pagination
+				if:true={displayRecords}
+				total-items={topicsLength}
+				onupdate={handlePaginatorChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={showAsButtons}
+				large-buttons={largeButtons}
+			></c-jc-pagination>
+		</div>
+	</div>
+</template>

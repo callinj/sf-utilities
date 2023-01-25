@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>JC Talent Decision Release Flow</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="rostersToUpdate" type="String[]" role="outputOnly" />
+            <property name="currentPerformancePeriod" type="String" role="outputOnly" />
+            <property name="showErrorToast" type="Boolean" />
+            <property name="isRelease" type="Boolean" />
+            <property name="helpText" type="String" role="inputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

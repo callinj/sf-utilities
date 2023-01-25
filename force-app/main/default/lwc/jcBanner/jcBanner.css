@@ -1,0 +1,46 @@
+:host > * {
+  position: relative;
+}
+:host .banner-visor {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+:host .banner-content {
+  height: 100%;
+  color: #fff;
+  padding: var(--lwc-varSpacingMedium, 1rem);
+  position: relative;
+  overflow: hidden;
+  max-width: 1170px;
+  margin: var(--lwc-spacingNone, 0rem) auto;
+}
+:host .banner-content.darkFont {
+  color: var(--lwc-colorTextDefault, #333333);
+}
+:host .sticky-bottom {
+  position: absolute;
+  width: calc(100% - var(--lwc-varSpacingMedium, 1rem) * 2);
+  bottom: var(--lwc-varSpacingMedium, 1rem);
+  color: var(--jc-banner-icon-color, currentColor);
+  transition-property: var(--jc-banner-icon-transition-properties, color);
+  transition-duration: var(--jc-banner-icon-transition-durations, var(--lwc-durationQuickly, 0.1s));
+  transition-timing-function: var(--jc-banner-icon-transition-timing, ease-in-out);
+}
+:host.roundedCorners > section {
+  border-radius: var(--lwc-borderRadiusMedium, 25rem);
+}
+:host.borders > section {
+  border: 1px solid var(--jc-banner-border-color, var(--lwc-colorBorder));
+}
+:host.shadow > section {
+  box-shadow: var(--lwc-shadowDropDown);
+}
+:host.no-margin > section {
+  margin-bottom: calc(-1 * var(--lwc-varSpacingLarge, 1.5rem));
+}
+@media only screen and (max-width: 47.9375em) {
+  :host .mobile-hide > section {
+    background-image: none !important;
+  }
+}

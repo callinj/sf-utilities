@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+
+:host svg {
+	margin-top: -1px;
+}
+
+:host hr {
+	margin: 0px;
+}
+
+:host .actions {
+	--action-link-color: var(--lwc-colorTextDefault);
+}
+
+:host .jc-component {
+	min-height: 250px;
+}

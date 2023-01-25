@@ -1,0 +1,10 @@
+@use '~../variables' as *;
+:host {
+	.loading-state {
+		min-height: 200px;
+		min-height: 200px;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+}

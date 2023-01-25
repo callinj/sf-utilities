@@ -1,0 +1,10 @@
+:host .search-action {
+	position: absolute;
+	right: var(--lwc-spacingNone, 0rem);
+	z-index: 2;
+}
+:host .dropdown-list {
+	width: 100%;
+	max-width: 100%;
+	overflow-y: auto;
+}

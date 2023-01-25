@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Article List</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="articleType"
+				type="String"
+				label="Select Knowledge Record/Article Type"
+				description="If using Lightning Knowledge this will be the record type that the articles will be filtered by. If using Classic Knowledge this it the article type the articles will be filtered by"
+				datasource="apex://JCArticleController"
+			/>
+            <!-- <property name="listType" type="String" label="Select List Type" datasource="Accordion List, Banner List, Basic List" default="Basic List" /> -->
+            <property
+				name="showViews"
+				type="Boolean"
+				label="Show View Count"
+				default="true"
+				description="When checked the article view count will display"
+			/>
+            <property
+				name="showDate"
+				type="Boolean"
+				label="Show Date"
+				default="true"
+				description="When checked the date the article was last published will display"
+			/>
+            <property
+				name="showTopics"
+				type="Boolean"
+				label="Show Topics"
+				default="true"
+				description="When checked the topics that are assigned to the article will be displayed"
+			/>
+            <property
+				name="showSummary"
+				type="Boolean"
+				label="Show Article Summary"
+				default="true"
+				description="When checked the article summary will be displayed"
+			/>
+            <property
+				name="showSortOptions"
+				type="Boolean"
+				label="Show Article Sorting"
+				default="true"
+				description="When checked the article sort options will be available"
+			/>
+            <property
+				name="defaultSortOrder"
+				type="String"
+				label="Default Sort Order"
+				description="This will control how the articles will be sorted when the page is loaded"
+				datasource="Trending,A^,Z^,Recent,Most Viewed"
+				default="Recent"
+			/>
+            <property
+				name="tightenSpacing"
+				type="Boolean"
+				label="Tighten Spacing"
+				description="Tightens the spacing between the end of the content and the horizontal rule. NOTE: This setting only applies to Accordion List and Basic List types"
+			/>
+            <property
+				name="enableAccordion"
+				type="Boolean"
+				label="Enable Accordion"
+				description="If checked, displays the articles in a lightning-accordion view. (Disregards the 'Enable Preview' option."
+			/>
+            <property
+				name="showViewArticle"
+				type="Boolean"
+				label="Show View Article Link"
+				description="If checked, displays a link to navigate to article page. NOTE: This setting only applies to the Accordion List type"
+			/>
+            <property
+				name="enablePreview"
+				type="Boolean"
+				label="Enable Preview"
+				description="If checked, displays article in modal instead of navigation to record page."
+			/>
+            <property
+				name="paginationLocation"
+				type="String"
+				label="Pagination Location"
+				datasource="Top,Bottom,Both,None"
+				default="Bottom"
+				description="Control where the list pagination will be displayed in relation to the list"
+			/>
+			<property
+				name="previousButton"
+				type="String"
+				label="Previous Button Text"
+				default="utility:chevronleft Prev"
+				description="This sets the text for the previous pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="nextButton"
+				type="String"
+				label="Next Button Text"
+				default="Next utility:chevronright"
+				description="This sets the text for the next pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="showAsButtons"
+				type="Boolean"
+				label="Display Pagination As Buttons"
+				default="true"
+				description="Specifies if the pagination buttons should be visually displayed as buttons or links. NOTE: This setting only applies if pagination is being displayed"
+			/>
+			<property
+				name="largeButtons"
+				type="Boolean"
+				label="Make Pagination Buttons Large"
+				description="Displays the pagination buttons as large buttons. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="pageSizeOptions"
+				type="String"
+				label="Page Size Options"
+				default="5,10,25,50"
+				description="This is a comma seperated list that controls pagination page size options. The default page size will default to value in the list. NOTE: This setting only applies if pagination is being displayed"
+			/>
+
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message user sees when no results are returned."
+				default="No Articles Found"
+			/>
+            <property
+				name="searchIdentifier"
+				type="String"
+				label="Search Identifier"
+				description="Identify the Search Identifier to communicate with partner component.  Search Identifier must be the exact same as it's partner component."
+			/>
+            <property
+				name="definedTopics"
+				type="String"
+				label="Predefined Filtered Topics"
+				description="Enter a list of Topic names in a comma-separated list to filter articles assigned to those topics"
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

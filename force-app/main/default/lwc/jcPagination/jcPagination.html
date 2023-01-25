@@ -1,0 +1,62 @@
+<template>
+	<lightning-layout if:true={showPagination} horizontal-align={itemAlignment} vertical-align="center">
+		<lightning-layout-item if:false={disableResulOptions}>
+			<lightning-layout vertical-align="center">
+				<lightning-layout-item>
+					<p>Showing</p>
+				</lightning-layout-item>
+				<lightning-layout-item padding="horizontal-small">
+					<lightning-combobox
+						name="resultOptions"
+						label="Result Options"
+						value={currentSelection}
+						options={customResultOptions}
+						onchange={handleDropdownChange}
+						variant="label-hidden"
+					></lightning-combobox>
+				</lightning-layout-item>
+			</lightning-layout>
+		</lightning-layout-item>
+		<lightning-layout-item if:false={disablePageSelection}>
+			<lightning-layout vertical-align="center">
+				<lightning-layout-item>Page</lightning-layout-item>
+				<lightning-layout-item class="slds-var-p-horizontal_xx-small">
+					<lightning-combobox
+						name="pageOptions"
+						label="Page Options"
+						value={pageNumber}
+						options={pageOptions}
+						onchange={handlePageSelection}
+						variant="label-hidden"
+						disabled={pageOptionsDisabled}
+					></lightning-combobox>
+				</lightning-layout-item>
+				<lightning-layout-item>of {totalPages}</lightning-layout-item>
+			</lightning-layout>
+		</lightning-layout-item>
+		<lightning-layout-item>
+			<lightning-layout>
+				<lightning-layout-item if:true={previousButton}>
+					<c-jc-action
+						class="prev-button"
+						label={previousButton}
+						variant={variant}
+						onclick={handlePrevious}
+						disabled={previousButtonDisabled}
+						over-sized={largeButtons}
+					></c-jc-action>
+				</lightning-layout-item>
+				<lightning-layout-item class="slds-var-m-left_small" if:true={nextButton}>
+					<c-jc-action
+						class="next-button"
+						label={nextButton}
+						variant={variant}
+						onclick={handleNext}
+						disabled={nextButtonDisabled}
+						over-sized={largeButtons}
+					></c-jc-action>
+				</lightning-layout-item>
+			</lightning-layout>
+		</lightning-layout-item>
+	</lightning-layout>
+</template>

@@ -1,0 +1,15 @@
+:host .jc-component {
+  min-height: 250px;
+}
+:host .jc-component .link {
+  color: var(--lwc-colorTextLink);
+}
+:host .jc-component .pointer {
+  cursor: pointer;
+}
+:host .jc-component button lightning-icon {
+  margin-bottom: 1px;
+}
+:host.no-margin > .jc-component {
+  margin-bottom: calc(-1 * var(--lwc-varSpacingLarge));
+}

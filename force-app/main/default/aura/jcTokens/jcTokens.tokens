@@ -1,0 +1,16 @@
+<aura:tokens extends="force:base">
+    <aura:token name="varFontSize11" value="" />
+    <aura:token name="varFontSize10" value="" />
+    <aura:token name="varFontSize9" value="" />
+    <aura:token name="varFontSize8" value="" />
+    <aura:token name="varFontSize7" value="" />
+    <aura:token name="varFontSize6" value="" />
+    <aura:token name="varFontSize5" value="" />
+    <aura:token name="varFontSize4" value="" />
+    <aura:token name="varFontSize3" value="" />
+    <aura:token name="varFontSize2" value="" />
+    <aura:token name="varFontSize1" value="" />
+    <aura:token name="spacingNone" value="" />
+    <aura:token name="fontFamilyHeading" value="" />
+    <aura:token name="colorTextSuccess" value="" />
+</aura:tokens>

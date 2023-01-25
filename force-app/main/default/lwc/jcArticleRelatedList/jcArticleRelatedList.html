@@ -1,0 +1,58 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<lightning-spinner variant="brand" alternative-text="Loading..." if:false={loaded}></lightning-spinner>
+
+		<!-- Enable Preview Modal -->
+		<c-jc-modal
+			if:true={showPreviewModal}
+			title={selectedTitle}
+			cancel-button="Close"
+			accept-button="Navigate to Article"
+			oncancel={closePreview}
+			onaccept={navigateUrl}
+		>
+			<span>
+				<c-jc-article-detail
+					record-id={selectedId}
+					show-author
+					show-date
+					show-views
+					show-summary
+					show-topics
+					size="large"
+				></c-jc-article-detail>
+			</span>
+		</c-jc-modal>
+		<c-jc-text content-type="h5" content-text={title}></c-jc-text>
+		<template if:true={displayArticles}>
+			<template for:each={articles} for:item="article">
+				<lightning-layout key={article.id}>
+					<lightning-layout-item class="slds-truncate">
+						<c-jc-action
+							if:false={enablePreview}
+							variant="Special Text Link"
+							label={article.title}
+							url={article.id}
+							custom-color={fontColor}
+							truncate
+						></c-jc-action>
+						<c-jc-action
+							if:true={enablePreview}
+							variant="Special Text Link"
+							label={article.title}
+							data-id={article.id}
+							data-title={article.title}
+							onclick={openPreview}
+							custom-color={fontColor}
+							truncate
+						></c-jc-action>
+					</lightning-layout-item>
+				</lightning-layout>
+			</template>
+		</template>
+
+		<template if:false={displayArticles}>
+			<c-jc-text content-type="p" content-text={zeroStateMessage} no-space></c-jc-text>
+		</template>
+	</section>
+</template>

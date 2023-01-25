@@ -1,0 +1,21 @@
+:host > section {
+	height: 100%;
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+:host > section > .background-visor {
+	height: 100%;
+	/* z-index: -1; */
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+:host.no-margin > section {
+	margin-top: calc(-1 * var(--lwc-varSpacingLarge));
+}
+:host.full-page > section {
+	width: 100vw;
+}

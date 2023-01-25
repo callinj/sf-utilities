@@ -1,0 +1,4 @@
+:host .filters.slds-grid_pull-padded {
+	margin-right: calc(-1 * var(--lwc-varSpacingXSmall, 0.5rem));
+	margin-left: calc(-1 * var(--lwc-varSpacingXSmall, 0.5rem));
+}

@@ -1,0 +1,4 @@
+:host p {
+	font-size: var(--lwc-varFontSize2);
+	line-height: var(--lwc-lineHeightText);
+}

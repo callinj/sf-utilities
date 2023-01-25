@@ -1,0 +1,15 @@
+<template>
+	<div>
+		<lightning-datatable
+			key-field="id"
+			data={getData}
+			columns={getColumns}
+			column-widths-mode={columnWidthsMode}
+			hide-checkbox-column={hideCheckboxCol}
+			show-row-number-column={showRowNumCol}
+			resize-column-disabled={resizeColumns}
+			hide-table-header={hideTableHeader}
+		>
+		</lightning-datatable>
+	</div>
+</template>

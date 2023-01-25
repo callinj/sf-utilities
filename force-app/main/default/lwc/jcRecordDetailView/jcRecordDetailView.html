@@ -1,0 +1,73 @@
+<template>
+	<section class="jc-component">
+		<lightning-layout horizontal-align="center" vertical-align="center" class="jc-spinner" if:false={loaded}>
+			<lightning-layout-item>
+				<lightning-spinner variant="brand" alternative-text="Loading..."></lightning-spinner>
+			</lightning-layout-item>
+		</lightning-layout>
+
+		<!-- TODO | Add 'density' as a property -->
+		<lightning-record-view-form
+			record-id={recordId}
+			object-api-name={objectName}
+			density="comfy"
+			onload={handleLoad}
+		>
+			<!-- Has Custom Fields -->
+			<lightning-layout vertical-align="center" multiple-rows if:true={hasCustomFields}>
+				<template for:each={fields} for:item="field">
+					<lightning-layout-item
+						key={field}
+						size={columns.size}
+						medium-device-size={columns.medium}
+						large-device-size={columns.large}
+					>
+						<lightning-output-field field-name={field}></lightning-output-field>
+					</lightning-layout-item>
+				</template>
+			</lightning-layout>
+
+			<!-- TODO | Find way to retrieve page layout without getRecordCreateDefaults -->
+			<!-- Defaults to page layout -->
+			<!-- Currently Not Available -->
+			<template if:true={hasSections}>
+				<template for:each={sections} for:item="section" for:index="sectionIndex">
+					<section class={section.class} key={section.key}>
+						<!-- TODO | Add section heading type to property panel -->
+						<c-jc-text
+							content-type="H5"
+							content-text={section.heading}
+							if:true={section.heading}
+						></c-jc-text>
+						<template for:each={section.rows} for:item="row" for:index="rowIndex">
+							<lightning-layout
+								horizontal-align="start"
+								vertical-align="start"
+								key={row.key}
+								multiple-rows
+							>
+								<template for:each={row.fields} for:item="field" for:index="fieldIndex">
+									<lightning-layout-item
+										size={section.columns.size}
+										medium-device-size={section.columns.medium}
+										large-device-size={section.columns.large}
+										flexibility="grow"
+										class={field.layoutClass}
+										key={field.key}
+									>
+										<lightning-output-field
+											field-name={field.apiName}
+											variant="label-stacked"
+											if:true={field.apiName}
+										>
+										</lightning-output-field>
+									</lightning-layout-item>
+								</template>
+							</lightning-layout>
+						</template>
+					</section>
+				</template>
+			</template>
+		</lightning-record-view-form>
+	</section>
+</template>

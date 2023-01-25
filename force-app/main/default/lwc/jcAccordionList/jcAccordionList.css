@@ -1,0 +1,7 @@
+:host .slds-accordion__list-item {
+	border-top: 0;
+}
+
+:host hr {
+	margin: 0px;
+}

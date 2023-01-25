@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="hideCheckboxColumn"
+				type="Boolean"
+				label="Hide Checkbox Column"
+				description="Hides/Shows Checkbox Column on Datatable"
+				default="true"
+			/>
+            <property
+				name="hideRowNumberColumn"
+				type="Boolean"
+				label="Hide Row Number Column"
+				description="Hides Row Number Column on Datatable"
+				default="false"
+			/>
+            <property
+				name="columnWidthsMode"
+				type="String"
+				label="Column Widths Mode"
+				description="Set Column Widths Automatically Based on Content (auto) or Evenly (fixed)"
+				datasource="auto,fixed"
+			/>
+            <property
+				name="resizeColumns"
+				type="Boolean"
+				label="Disable Resize Columns"
+				description="Disables the User's Ability to Resize Column Widths"
+			/>
+            <property
+				name="hideColumnHeader"
+				type="Boolean"
+				label="Hide Column Header"
+				description="Hides Column Header(s)"
+				default="false"
+			/>
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message to Display When There Is No Data"
+				default="No Records Found"
+			/>
+            <property
+				name="listType"
+				type="String"
+				label="List Type"
+				description="Parameter to be passed to Apex method.  Acceptable values are: 'provided', 'conversations', 'feedback' and 'self'."
+				datasource="provided,conversations,feedback,self"
+			/>
+            <property
+				name="pageSizeOptions"
+				type="String"
+				label="Page Size Options"
+				default="5,10,25,50"
+				description="This is a comma seperated list that controls pagination page size options. The default page size will default to value in the list. NOTE: This setting only applies if pagination is being displayed"
+			/>
+                <property
+				name="previousButton"
+				type="String"
+				label="Previous Button Text"
+				default="utility:chevronleft Prev"
+				description="This sets the text for the previous pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="nextButton"
+				type="String"
+				label="Next Button Text"
+				default="Next utility:chevronright"
+				description="This sets the text for the next pagination button. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="showAsButtons"
+				type="Boolean"
+				label="Display Pagination As Buttons"
+				default="true"
+				description="Specifies if the pagination buttons should be visually displayed as buttons or links. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="largeButtons"
+				type="Boolean"
+				label="Make Pagination Buttons Large"
+				description="Displays the pagination buttons as large buttons. NOTE: This setting only applies if pagination is being displayed"
+			/>
+            <property
+				name="showPaginationCondition"
+				type="Boolean"
+				label="Show Pagination If"
+				description="Displays pagination only if the number of results exceeds the selected Page Size Option"
+				default="false"
+			/>
+            <!-- <property 
+                name="columnWidth" 
+                type="Boolean" 
+                label="Column Width" 
+                description="Specify Column Width For the First Column" 
+            /> -->
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

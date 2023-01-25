@@ -1,0 +1,13 @@
+:host.no-margin > section {
+	margin-bottom: calc(-1 * var(--lwc-varSpacingLarge));
+}
+
+/* :host a {
+    text-decoration: none;
+} */
+c-jc-banner::part(test) {
+	color: green;
+}
+:host .jc-component {
+	min-height: 250px;
+}

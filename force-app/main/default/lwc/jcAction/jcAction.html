@@ -1,0 +1,64 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<lightning-layout horizontal-align={actionAlign} class="jc-component">
+		<lightning-layout-item class={truncateClass} flexibility={flexibility}>
+			<template if:false={showAsLink}>
+				<button
+					title={title}
+					disabled={disabled}
+					onfocus={handleFocus}
+					onblur={handleBlur}
+					onclick={handleClick}
+					class={actionClass}
+					if:true={showAction}
+				>
+					<lightning-icon
+						icon-name={leftActionIcon}
+						size={iconSize}
+						alternative-text={title}
+						title={title}
+						class={iconLeftClass}
+						if:true={leftActionIcon}
+					></lightning-icon>
+					<template if:true={label}><p class={truncateClass}>{label}</p></template>
+					<lightning-icon
+						icon-name={rightActionIcon}
+						size={iconSize}
+						alternative-text={title}
+						title={title}
+						class={iconRightClass}
+						if:true={rightActionIcon}
+					></lightning-icon>
+				</button>
+			</template>
+			<template if:true={showAsLink}>
+				<a
+					tabindex="0"
+					title={title}
+					onclick={handleClick}
+					onkeypress={handleKeyPress}
+					class={actionClass}
+					if:true={showAction}
+				>
+					<lightning-icon
+						icon-name={leftActionIcon}
+						size={iconSize}
+						alternative-text={title}
+						title={title}
+						class={iconLeftClass}
+						if:true={leftActionIcon}
+					></lightning-icon>
+					<template if:true={label}><p class={truncateClass}>{label}</p></template>
+					<lightning-icon
+						icon-name={rightActionIcon}
+						size={iconSize}
+						alternative-text={title}
+						title={title}
+						class={iconRightClass}
+						if:true={rightActionIcon}
+					></lightning-icon>
+				</a>
+			</template>
+		</lightning-layout-item>
+	</lightning-layout>
+</template>

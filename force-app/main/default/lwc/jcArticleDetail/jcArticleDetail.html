@@ -1,0 +1,94 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<section class="loading-state" if:false={loaded}>
+			<lightning-spinner variant="brand" alternative-text="Loading..."></lightning-spinner>
+		</section>
+		<template if:true={loaded}>
+			<lightning-layout class="slds-var-m-bottom_medium" if:true={displayAuthor}>
+				<lightning-layout-item>
+					<c-jc-text content-type={subheadingType} content-text={author} no-space></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+
+			<lightning-layout class="slds-var-m-bottom_medium" if:true={displayDate}>
+				<lightning-layout-item>
+					<lightning-formatted-date-time value={date}></lightning-formatted-date-time>
+				</lightning-layout-item>
+			</lightning-layout>
+
+			<lightning-layout class="slds-var-m-bottom_small" if:true={displayTitle}>
+				<lightning-layout-item>
+					<c-jc-text content-type={headingType} content-text={title} no-space></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+
+			<lightning-layout class="slds-var-m-bottom_medium" if:true={displayViews}>
+				<lightning-layout-item class="slds-var-p-right_xx-small">
+					<c-jc-text content-type="p.lead" content-text={views} no-space></c-jc-text>
+				</lightning-layout-item>
+				<lightning-layout-item>
+					<c-jc-text content-type="p.lead" content-text={viewsLabel} no-space></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+
+			<template if:true={displaySummary}>
+				<lightning-layout class="slds-var-m-bottom_xx-small" if:true={showFieldLabels}>
+					<lightning-layout-item>
+						<c-jc-text content-type={subheadingType} content-text="Summary" no-space></c-jc-text>
+					</lightning-layout-item>
+				</lightning-layout>
+
+				<lightning-layout class="slds-var-m-bottom_medium">
+					<lightning-layout-item>
+						<c-jc-text content-type="p.lead" content-text={summary} no-space></c-jc-text>
+					</lightning-layout-item>
+				</lightning-layout>
+			</template>
+
+			<template if:true={displayCustom}>
+				<template for:each={additionalFields} for:item="field">
+					<lightning-layout key={field.label} class="slds-var-m-bottom_xx-small" if:true={showFieldLabels}>
+						<lightning-layout-item>
+							<c-jc-text content-type={subheadingType} content-text={field.label} no-space></c-jc-text>
+						</lightning-layout-item>
+					</lightning-layout>
+
+					<lightning-layout key={field.label} class="slds-var-m-bottom_medium">
+						<lightning-layout-item>
+							<c-jc-text content-type="p.lead" content-text={field.value} no-space></c-jc-text>
+						</lightning-layout-item>
+					</lightning-layout>
+				</template>
+			</template>
+
+			<template if:true={showTopics}>
+				<lightning-layout class="slds-var-m-bottom_xx-small" if:true={showFieldLabels}>
+					<lightning-layout-item>
+						<c-jc-text content-type={subheadingType} content-text="Assigned Topics" no-space></c-jc-text>
+					</lightning-layout-item>
+				</lightning-layout>
+
+				<lightning-layout class="slds-var-m-bottom_medium" pull-to-boundary="medium" if:true={displayTopics}>
+					<template for:each={assignedTopics} for:item="topic">
+						<lightning-layout-item key={topic.id} padding="horizontal-medium">
+							<c-jc-text content-type="p.lead" no-space>
+								<c-jc-action
+									variant="Special Link Text"
+									label={topic.name}
+									url={topic.id}
+									no-space
+								></c-jc-action>
+							</c-jc-text>
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+
+				<lightning-layout class="slds-var-m-bottom_medium" if:false={displayTopics}>
+					<lightning-layout-item>
+						<c-jc-text content-type="p.lead" content-text="No Assigned Topics" no-space></c-jc-text>
+					</lightning-layout-item>
+				</lightning-layout>
+			</template>
+		</template>
+	</section>
+</template>

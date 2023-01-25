@@ -1,0 +1,50 @@
+@use '~../variables' as *;
+
+:host {
+	& > * {
+		position: relative;
+	}
+	.banner-visor {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
+	.banner-content {
+		height: 100%;
+		color: #fff;
+		padding: $spacing-medium;
+		position: relative;
+		overflow: hidden;
+		max-width: 1170px;
+		margin: $spacing-none auto;
+		&.darkFont {
+			color: $color-text;
+		}
+	}
+	.sticky-bottom {
+		position: absolute;
+		width: calc(100% - $spacing-medium * 2);
+		bottom: $spacing-medium;
+		color: var(--jc-banner-icon-color, currentColor);
+		transition-property: var(--jc-banner-icon-transition-properties, color);
+		transition-duration: var(--jc-banner-icon-transition-durations, #{$duration-quick});
+		transition-timing-function: var(--jc-banner-icon-transition-timing, ease-in-out);
+	}
+	&.roundedCorners > section {
+		border-radius: $radius-medium;
+	}
+	&.borders > section {
+		border: 1px solid var(--jc-banner-border-color, #{$borderColor});
+	}
+	&.shadow > section {
+		box-shadow: var(--lwc-shadowDropDown);
+	}
+	&.no-margin > section {
+		margin-bottom: calc(-1 * $spacing-large);
+	}
+	.mobile-hide > section {
+		@media only screen and (max-width: 47.9375em) {
+			background-image: none !important;
+		}
+	}
+}

@@ -1,0 +1,212 @@
+<template>
+	<div class="jc-component">
+		<div class="slds-form-element">
+			<label class="slds-form-element__label" for="combobox-id" id="combobox-label">Relate To</label>
+			<div class="slds-form-element__control">
+				<div class="slds-combobox_container">
+					<div
+						class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open"
+						role="combobox"
+					>
+						<div
+							class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+							role="none"
+						>
+							<input
+								type="text"
+								class="slds-input slds-combobox__input slds-has-focus slds-combobox__input-value"
+								id="combobox-id"
+								aria-activedescendant="option1"
+								aria-autocomplete="list"
+								aria-controls="listbox-id-4"
+								aria-expanded="true"
+								aria-haspopup="listbox"
+								autocomplete="off"
+								role="combobox"
+								placeholder="Search..."
+								value={searchTerm}
+								onfocus={handleFocus}
+								onselect={handleInputSelect}
+								onchange={handleTextChange}
+								oninput={handleInput}
+								onkeydown={handleInputKeyDown}
+								onblur={handleBlur}
+							/>
+							<lightning-button-icon
+								variant="container"
+								icon-name="utility:search"
+								alternative-text="Search"
+								aria-controls="combobox"
+								title="Search"
+								class="search-action"
+								if:false={searchTerm}
+								><label>Search</label></lightning-button-icon
+							>
+							<lightning-button-icon
+								variant="container"
+								icon-name="utility:close"
+								alternative-text="Clear"
+								aria-controls="combobox"
+								title="Clear"
+								class="search-action"
+								onclick={handleInputClear}
+								if:true={searchTerm}
+								><label>Clear</label></lightning-button-icon
+							>
+						</div>
+						<div
+							id="listbox-id-4"
+							class="slds-dropdown dropdown-list"
+							role="listbox"
+							onscroll={handleListboxScroll}
+							onmousedown={handleDropdownMouseDown}
+							onmouseup={handleDropdownMouseUp}
+							onmouseleave={handleDropdownMouseLeave}
+							onclick={handleOptionClick}
+						>
+							<ul class="slds-listbox slds-listbox_vertical" role="presentation">
+								<li role="presentation" class="slds-listbox__item">
+									<div
+										aria-selected="true"
+										id="option0"
+										class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_term slds-has-focus"
+										role="option"
+									>
+										<span class="slds-media__figure slds-listbox__option-icon">
+											<span
+												class="slds-icon_container slds-icon-utility-search"
+												title="Search for term:"
+											>
+												<lightning-icon
+													icon-name="utility:search"
+													size="x-small"
+													alternative-text="Search for term:"
+													title="Search for term:"
+													class="slds-icon-text-default"
+												></lightning-icon>
+												<!-- <svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+													<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+												</svg>
+												<span class="slds-assistive-text">Search for term: </span> -->
+											</span>
+										</span>
+										<span class="slds-media__body">
+											<span class="slds-listbox__option-text_entity">{searchTerm}</span>
+										</span>
+									</div>
+								</li>
+								<li role="presentation" class="slds-listbox__item">
+									<div
+										id="option1"
+										class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+										role="option"
+									>
+										<span class="slds-media__figure slds-listbox__option-icon">
+											<lightning-icon
+												icon-name="standard:account"
+												size="small"
+												alternative-text="Alternative Text"
+												title="Alternative Text"
+											></lightning-icon>
+										</span>
+										<span class="slds-media__body">
+											<span class="slds-listbox__option-text_entity">
+												<span> <mark>Salesforce</mark>.com</span>
+											</span>
+											<span class="slds-listbox__option-meta">Account • San Francisco, CA</span>
+										</span>
+									</div>
+								</li>
+								<li role="presentation" class="slds-listbox__item">
+									<div
+										id="option2"
+										class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+										role="option"
+									>
+										<span class="slds-media__figure slds-listbox__option-icon">
+											<lightning-icon
+												icon-name="standard:account"
+												size="small"
+												alternative-text="Alternative Text"
+												title="Alternative Text"
+											></lightning-icon>
+										</span>
+										<span class="slds-media__body">
+											<span class="slds-listbox__option-text_entity">
+												<span> <mark>Salesforce</mark>.org</span>
+											</span>
+											<span class="slds-listbox__option-meta">Account • New York, NY</span>
+										</span>
+									</div>
+								</li>
+								<li role="presentation" class="slds-listbox__item">
+									<div
+										id="option3"
+										class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+										role="option"
+									>
+										<span class="slds-media__figure slds-listbox__option-icon">
+											<lightning-icon
+												icon-name="standard:account"
+												size="small"
+												alternative-text="Alternative Text"
+												title="Alternative Text"
+											></lightning-icon>
+										</span>
+										<span class="slds-media__body">
+											<span class="slds-listbox__option-text_entity">
+												<span> <mark>Salesforce</mark>HQ</span>
+											</span>
+											<span class="slds-listbox__option-meta">Account • San Francisco, CA</span>
+										</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="slds-listbox_selection-group">
+					<ul
+						class="slds-listbox slds-listbox_horizontal"
+						role="listbox"
+						aria-label="Selected Options:"
+						aria-orientation="horizontal"
+					>
+						<li class="slds-listbox-item" role="presentation">
+							<span class="slds-pill" role="option" tabindex="0" aria-selected="true">
+								<lightning-icon
+									icon-name="standard:account"
+									size="small"
+									alternative-text="Alternative Text"
+									title="Alternative Text"
+								></lightning-icon>
+								<span class="slds-pill__label" title="Salesforce Inc.">Salesforce Inc.</span>
+								<span class="slds-icon_container slds-pill__remove" title="Remove">
+									<svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+										<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+									</svg>
+								</span>
+							</span>
+						</li>
+						<li class="slds-listbox-item" role="presentation">
+							<span class="slds-pill" role="option" aria-selected="true">
+								<lightning-icon
+									icon-name="standard:account"
+									size="small"
+									alternative-text="Alternative Text"
+									title="Alternative Text"
+								></lightning-icon>
+								<span class="slds-pill__label" title="Dickenson plc">Dickenson plc</span>
+								<span class="slds-icon_container slds-pill__remove" title="Remove">
+									<svg class="slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+										<use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+									</svg>
+								</span>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

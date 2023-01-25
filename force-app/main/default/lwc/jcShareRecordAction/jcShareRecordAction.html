@@ -1,0 +1,90 @@
+<template>
+	<div class="jc-component">
+		<c-jc-action
+			variant={actionVariant}
+			label={actionLabel}
+			left-icon={actionLeftIcon}
+			right-icon={acitonRightIcon}
+			action-align={actionAlign}
+			full-width={actionFullWidth}
+			over-sized={actionOverSized}
+			underline={actionUnderline}
+			border-radius={actionBorderRadius}
+			border-thickness={actionBorderThickness}
+			custom-color={actionCustomColor}
+			onactionclicked={actionClick}
+		></c-jc-action>
+
+		<c-jc-modal size="small" oncancel={closeModal} if:true={showForm}>
+			<lightning-layout horizontal-align="center" vertical-align="center" slot="title">
+				<lightning-layout-item>
+					<c-jc-text content-type="H3" content-text="Share Record"></c-jc-text>
+				</lightning-layout-item>
+			</lightning-layout>
+			<lightning-layout
+				horizontal-align="center"
+				vertical-align="center"
+				class="loading-state"
+				if:false={formLoaded}
+			>
+				<lightning-layout-item>
+					<lightning-spinner variant="brand" alternative-text="Loading Form"></lightning-spinner>
+				</lightning-layout-item>
+			</lightning-layout>
+
+			<lightning-record-edit-form
+				object-api-name="Feedback__c"
+				onload={handleLoad}
+				onsubmit={handleSubmit}
+				onsuccess={handleSuccess}
+				if:true={canShare}
+			>
+				<lightning-input-field
+					class="reset-field"
+					field-name="Receiver__c"
+					required
+					onchange={handleUserSelect}
+				></lightning-input-field>
+				<lightning-button type="submit" label="Save" class="slds-hide"></lightning-button>
+			</lightning-record-edit-form>
+			<div>
+				<c-jc-text content-type="h6" content-text="Sharing With..." content-align="left" no-space></c-jc-text>
+				<c-jc-datatable
+					records={records}
+					columns={columns}
+					show-checkboxes={showCheckboxes}
+					show-row-numbers={showRowNumbers}
+					column-widths-mode={columnWidthsMode}
+					enable-column-resizing={enableColumnResizing}
+					show-table-header
+				>
+				</c-jc-datatable>
+				<!-- <lightning-datatable data={records} columns={columns} key-field="sharedName"> </lightning-datatable> -->
+				<lightning-layout
+					horizontal-align="center"
+					vertical-align="center"
+					class="loading-state"
+					if:false={listLoaded}
+				>
+					<lightning-layout-item>
+						<lightning-spinner variant="brand" alternative-text="Loading Form"></lightning-spinner>
+					</lightning-layout-item>
+				</lightning-layout>
+			</div>
+
+			<lightning-layout horizontal-align="end" pull-to-boundary="small" slot="footer" if:true={canShare}>
+				<lightning-layout-item padding="horizontal-small">
+					<c-jc-action label="Cancel" variant="neutral" onclick={closeModal}></c-jc-action>
+				</lightning-layout-item>
+				<lightning-layout-item padding="horizontal-small">
+					<c-jc-action label="Share" variant="brand" onclick={submitForm}></c-jc-action>
+				</lightning-layout-item>
+			</lightning-layout>
+			<lightning-layout horizontal-align="end" pull-to-boundary="small" slot="footer" if:false={canShare}>
+				<lightning-layout-item padding="horizontal-small">
+					<c-jc-action label="Close" variant="neutral" onclick={closeModal}></c-jc-action>
+				</lightning-layout-item>
+			</lightning-layout>
+		</c-jc-modal>
+	</div>
+</template>

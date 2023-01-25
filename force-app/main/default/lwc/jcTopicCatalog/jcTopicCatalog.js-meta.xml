@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Topic Catalog</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="expandedTopicStructure"
+				type="String"
+				label="Expanded Topic Structure"
+				datasource="None,Expand Current Topic,All,Expand 1st Level Topics"
+				default="None"
+				description="Specifies which layers to expand."
+			/>
+            <property
+				name="showSearch"
+				type="Boolean"
+				label="Show Search"
+				default="true"
+				description="Shows the search bar"
+			/>
+            <property
+				name="placeholder"
+				type="String"
+				label="Placeholder Text"
+				default="Filter Topics..."
+				description="Specifies the search bar placeholder text."
+			/>
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message the user sees when no results are returned"
+				default="No Topics Found"
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+            <property
+				name="recordId"
+				type="String"
+				label="Record Id"
+				description="Automatically binds the recordId to the component."
+				default="{!recordId}"
+			/>
+
+            <!-- <property name="highlightFeaturedTopics" type="Boolean" label="Highlight Featured Topics" default="true" description="Specifies whether or not to display the highlight featured topics." />
+            <property
+                name="featuredTopicIconAndText"
+                type="String"
+                label="Featured Topic Icon and Text"
+                default="utility:ribbon Featured"
+                description="Specifies the icon first along with the text separated by a space."
+            />
+            <property name="showFollowerCount" type="Boolean" label="Show Follower Count" default="true" description="Specifies whether or not to display the follower count." />
+            <property name="showArticleCount" type="Boolean" label="Show Article Count" default="true" description="Specifies whether or not to display the article count." />
+            <property name="showDisucssionCount" type="Boolean" label="Show Discussion Count" default="true" description="Specifies whether or not to display the discussion count." />
+            <property name="showFollowButtons" type="Boolean" label="Show Follow Buttons" default="true" description="Specifies whether or not to display the follow buttons." /> -->
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

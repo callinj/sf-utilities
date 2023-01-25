@@ -1,0 +1,24 @@
+@use '~../variables' as *;
+:host {
+	.jc-component {
+		min-height: 250px;
+		.link {
+			color: var(--lwc-colorTextLink);
+		}
+
+		.pointer {
+			cursor: pointer;
+		}
+
+		button {
+			lightning-icon {
+				margin-bottom: 1px;
+			}
+		}
+	}
+	&.no-margin {
+		> .jc-component {
+			margin-bottom: calc(-1 * var(--lwc-varSpacingLarge));
+		}
+	}
+}

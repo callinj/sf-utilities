@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+c-jc-related-tabs > section {
+    padding: var(--lwc-varSpacingSmall) 0;
+}
+
+c-jc-related-tabs lightning-combobox.slds-form-element_horizontal .slds-form-element__control {
+    padding-left: 0;
+}
+c-jc-related-tabs lightning-combobox.slds-form-element_horizontal .slds-form-element__control .slds-combobox {
+    min-width: 200px;
+}
+
+c-jc-related-tabs lightning-tab-bar ul li .slds-icon {
+    fill: currentColor;
+    height: 1rem;
+    width: 1rem;
+}
+
+c-jc-related-tabs lightning-tab-bar ul li .slds-icon-utility-success {
+    color: var(--lwc-colorTextSuccess);
+}
+
+c-jc-related-tabs lightning-tab-bar ul li .slds-icon-utility-warning {
+    color: var(--lwc-colorBackgroundError);
+}
+
+c-jc-related-tabs .tabScroll lightning-tab-bar {
+    display: flex;
+    flex-direction: column;
+}
+c-jc-related-tabs .tabScroll lightning-tab-bar ul {
+    flex-basis: 0px;
+    flex-grow: 1;
+    overflow-y: auto;
+    border-right: none;
+}
+c-jc-related-tabs .tabScroll lightning-tab-bar ul li {
+    width: 100%;
+    border-right: 1px solid var(--lwc-colorBorder);
+}
+c-jc-related-tabs .tabScroll lightning-tab-bar ul li.slds-is-active {
+    border-right: none;
+}
+c-jc-related-tabs .tabScroll lightning-tab-bar ul li.slds-is-active .slds-icon {
+    margin-right: 1px;
+}

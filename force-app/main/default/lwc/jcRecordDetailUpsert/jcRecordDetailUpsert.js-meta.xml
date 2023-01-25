@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>JC Record Detail Upsert</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="objectName"
+				type="String"
+				label="Object API Name"
+				description="API name of the object that will be used to load the form."
+			/>
+            <property
+				name="hideEmptyFields"
+				type="Boolean"
+				label="Hide Empty Fields"
+				description="If checked, will not display all empty fields."
+			/>
+            <property
+				name="customFields"
+				type="String"
+				label="Fields"
+				description="This is a comma separate string of the fields to display. The fields should be the api name of the fields."
+			/>
+            <property
+				name="columns"
+				type="String"
+				label="Columns"
+				datasource="1,2,3,4,6"
+				default="2"
+				description="Specifies the number of columns in the layout. This property is ignored when no 'fields' are specified resulting in pulling in the page layout columns"
+			/>
+            <property
+				name="successMessage"
+				type="String"
+				label="Success Message"
+				description="This text will be displayed when a record is successfully created."
+				default="The record has been submitted successfully"
+			/>
+            <property
+				name="disabledFields"
+				type="String"
+				label="Disabled Fields"
+				description="A comma separated list of field API names that should be disabled on the form. For example, you may want to disable a field that has a default value set that shouldn't be changed"
+			/>
+            <property
+				name="defaultValues"
+				type="String"
+				label="Default Fields"
+				description="A comma separated list of field API names that should be defaulted on the form."
+			/>
+			<property
+				name="enableUpload"
+				type="Boolean"
+				label="Allow File Attachments"
+				description="If checked, a file uploader will display at the bottom of the form."
+			/>
+            <property
+				name="customClasses"
+				type="String"
+				label="Add Custom Class Name(s)"
+				description="Use this attribute to easily add custom CSS classes to the component."
+			/>
+			<property
+				name="recordTypeLabel"
+				type="String"
+				label="Object Record Type Label"
+				description='Record type label of the record type that will be used to load the from. If left blank or an invalid record type is specified, the "Master" record type will be used.'
+			/>
+            <property
+				name="recordId"
+				type="String"
+				label="Current Record Id"
+				description="Reference a record id. This defaults to {!recordId} this will allow the component to reference the current record data when placed on a record detail page. You may also hardcode a record id, however that is not recommended."
+				default="{!recordId}"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

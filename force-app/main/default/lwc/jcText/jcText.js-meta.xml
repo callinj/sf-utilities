@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Text</masterLabel>
+    <description>Select which content type you would like to display from the options below.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="contentType"
+				type="String"
+				label="Select Content Type"
+				datasource="H1,H2,H3,H4,H5,H6,P,P.lead,P.small"
+				description="Content type that should be displayed."
+			/>
+            <property
+				name="contentText"
+				type="String"
+				label="Content Text"
+				description="Text that should be displayed. This does support HTML."
+			/>
+            <property
+				name="contentAlign"
+				type="String"
+				label="Text Align"
+				datasource="Left, Center, Right"
+				description="Controls the horizontal alignment of the content within the parent container."
+			/>
+            <property
+				name="contentTransform"
+				type="String"
+				label="Text Transform"
+				datasource="None, Capitalize, Uppercase, Lowercase"
+				description="Type of text transformation that should be applied to the content that has been applied"
+			/>
+            <property
+				name="truncation"
+				type="String"
+				label="Truncate Text by # Lines"
+				datasource="None,1,2,3,5,7"
+				description="Truncates the text specified by however many lines user selects."
+			/>
+			<property
+				name="darkFont"
+				type="Boolean"
+				label="Dark Font?"
+				description="This controls the content text color. If checked the content will be displayed in a dark font color."
+				default="true"
+			/>
+			<property name="bold" type="Boolean" label="Bold Font" description="If checked the text will be bolded." />
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Component Bottom Margin"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce"
+			/>
+            <property
+				name="customClass"
+				type="String"
+				label="Add Class"
+				description="Add a custom CSS class to the component to apply custom CSS that has been defined"
+			/>
+            <property
+				name="recordId"
+				type="String"
+				label="Record Id"
+				description="Reference a record id. This defaults to {!recordId} this will allow the component to reference the current record data when placed on a record detail page. You may also hardcode a record id, however that is not recommended."
+				default="{!recordId}"
+			/>
+        </targetConfig>
+        <targetConfig targets="lightning__HomePage,lightning__RecordPage,lightning__AppPage">
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+        <targetConfig targets="lightning__FlowScreen">
+            <property
+				name="customClass"
+				type="String"
+				label="Add Class"
+				description="Custom CSS class name(s)."
+				role="inputOnly"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Call To Action</masterLabel>
+    <description>Create a branded Call-to-action that can be used anywhere on the page.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="heading"
+				type="String"
+				label="Heading Text"
+				description="Text that will be displayed as the heading."
+			/>
+            <property
+				name="description"
+				type="String"
+				label="Description Text"
+				description="Text that will be displayed as the description."
+			/>
+            <property
+				name="firstActionText"
+				type="String"
+				label="First Call To Action Text"
+				description="This is the text that will be displayed for the first action."
+			/>
+            <property
+				name="firstActionUrl"
+				type="String"
+				label="First Call To Action URL"
+				description="URL that the first call to action will navigate to."
+			/>
+            <property
+				name="secondActionText"
+				type="String"
+				label="Second Call To Action Text"
+				description="This is the text that will be displayed for the second action."
+			/>
+            <property
+				name="secondActionUrl"
+				type="String"
+				label="Second Call To Action URL"
+				description="URL that the second call to action will navigate to."
+			/>
+            <property
+				name="showButton"
+				type="Boolean"
+				label="Show As Button"
+				description="When checked this will display the actions as a button."
+			/>
+            <property
+				name="imageReference"
+				type="String"
+				label="Select Icon"
+				description="Specify a SLDS icon to display on the button. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+            <property
+				name="iconSize"
+				type="String"
+				label="Icon Size"
+				description="This determines the size of the icon"
+				datasource="Medium, XX-Small, X-Small, Small, Large"
+			/>
+            <property
+				name="iconPosition"
+				type="String"
+				label="Icon Position"
+				description="This will control where the icon will be displayed based on the content."
+				datasource="Left - Top, Left - Middle, Left - Bottom, Top - Left, Top - Center, Top - Right, Right - Top, Right - Middle, Right - Bottom"
+			/>
+            <property
+				name="textAlign"
+				type="String"
+				label="Text Align"
+				description="Specifies the text alignment of the content."
+				datasource="Left, Center, Right"
+			/>
+			<property
+				name="darkFont"
+				type="Boolean"
+				label="Dark Font?"
+				description="This controls the content text color. If checked the content will be displayed in a dark font color."
+				default="true"
+			/>
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Component Bottom Margin"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce"
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+        <targetConfig targets="lightning__HomePage,lightning__RecordPage,lightning__AppPage">
+            <property
+				name="heading"
+				type="String"
+				label="Heading Text"
+				description="Text that will be displayed as the heading."
+			/>
+            <property
+				name="description"
+				type="String"
+				label="Description Text"
+				description="Text that will be displayed as the description."
+			/>
+            <property
+				name="firstActionText"
+				type="String"
+				label="First Call To Action Text"
+				description="This is the text that will be displayed for the first action."
+			/>
+            <property
+				name="firstActionUrl"
+				type="String"
+				label="First Call To Action URL"
+				description="URL that the first call to action will navigate to."
+			/>
+            <property
+				name="secondActionText"
+				type="String"
+				label="Second Call To Action Text"
+				description="This is the text that will be displayed for the second action."
+			/>
+            <property
+				name="secondActionUrl"
+				type="String"
+				label="Second Call To Action URL"
+				description="URL that the second call to action will navigate to."
+			/>
+            <property
+				name="showButton"
+				type="Boolean"
+				label="Show As Button"
+				description="When checked this will display the actions as a button."
+			/>
+            <property
+				name="imageReference"
+				type="String"
+				label="Select Icon"
+				description="Specify a SLDS icon to display on the button. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+            <property
+				name="iconSize"
+				type="String"
+				label="Icon Size"
+				description="This determines the size of the icon"
+				datasource="Medium, XX-Small, X-Small, Small, Large"
+			/>
+            <property
+				name="iconPosition"
+				type="String"
+				label="Icon Position"
+				description="This will control where the icon will be displayed based on the content."
+				datasource="Left - Top, Left - Middle, Left - Bottom, Top - Left, Top - Center, Top - Right, Right - Top, Right - Middle, Right - Bottom"
+			/>
+            <property
+				name="textAlign"
+				type="String"
+				label="Text Align"
+				description="Specifies the text alignment of the content."
+				datasource="Left, Center, Right"
+			/>
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Component Bottom Margin"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce"
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+        <targetConfig targets="lightning__FlowScreen">
+            <property
+				name="heading"
+				type="String"
+				label="Heading Text"
+				description="Text that will be displayed as the heading."
+				role="inputOnly"
+			/>
+            <property
+				name="description"
+				type="String"
+				label="Description Text"
+				description="Text that will be displayed as the description."
+				role="inputOnly"
+			/>
+            <property
+				name="firstActionText"
+				type="String"
+				label="First Call To Action Text"
+				description="This is the text that will be displayed for the first action."
+				role="inputOnly"
+			/>
+            <property
+				name="firstActionUrl"
+				type="String"
+				label="First Call To Action URL"
+				description="URL that the first call to action will navigate to."
+				role="inputOnly"
+			/>
+            <property
+				name="secondActionText"
+				type="String"
+				label="Second Call To Action Text"
+				description="This is the text that will be displayed for the second action."
+				role="inputOnly"
+			/>
+            <property
+				name="secondActionUrl"
+				type="String"
+				label="Second Call To Action URL"
+				description="URL that the second call to action will navigate to."
+				role="inputOnly"
+			/>
+            <property
+				name="showButton"
+				type="Boolean"
+				label="Show As Button"
+				description="When checked this will display the actions as a button."
+				role="inputOnly"
+			/>
+            <property
+				name="imageReference"
+				type="String"
+				label="Select Icon"
+				description="Specify a SLDS icon to display on the button. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+				role="inputOnly"
+			/>
+            <property
+				name="iconSize"
+				type="String"
+				label="Icon Size"
+				description="This determines the size of the icon"
+				datasource="Medium, XX-Small, X-Small, Small, Large"
+				role="inputOnly"
+			/>
+            <property
+				name="iconPosition"
+				type="String"
+				label="Icon Position"
+				description="This will control where the icon will be displayed based on the content."
+				datasource="Left - Top, Left - Middle, Left - Bottom, Top - Left, Top - Center, Top - Right, Right - Top, Right - Middle, Right - Bottom"
+				role="inputOnly"
+			/>
+            <property
+				name="textAlign"
+				type="String"
+				label="Text Align"
+				description="Specifies the text alignment of the content."
+				datasource="Left, Center, Right"
+				role="inputOnly"
+			/>
+            <property
+				name="removeMargin"
+				type="Boolean"
+				label="Remove Component Bottom Margin"
+				description="Removes the margin that is applied to the bottom of the component by Salesforce"
+				role="inputOnly"
+			/>
+            <property
+				name="customClass"
+				type="String"
+				label="Add Class"
+				description="Custom CSS class name(s)."
+				role="inputOnly"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

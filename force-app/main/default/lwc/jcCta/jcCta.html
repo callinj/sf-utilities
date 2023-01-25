@@ -1,0 +1,67 @@
+<template>
+	<section class="jc-component">
+		<lightning-layout horizontal-align={iconAlign} class={iconTopClass} if:true={iconTop}>
+			<lightning-layout-item>
+				<lightning-icon
+					icon-name={iconName}
+					src={imageSrc}
+					size={size}
+					alternative-text={imageAssertiveText}
+					title={imageAssertiveText}
+					class="slds-current-color"
+				></lightning-icon>
+			</lightning-layout-item>
+		</lightning-layout>
+		<lightning-layout horizontal-align={contentAlign} vertical-align={iconAlign} if:true={showSection}>
+			<lightning-layout-item class="slds-var-p-right_small" if:true={iconLeft}>
+				<lightning-icon
+					icon-name={iconName}
+					src={imageSrc}
+					size={size}
+					alternative-text={imageAssertiveText}
+					title={imageAssertiveText}
+					class="slds-current-color"
+				></lightning-icon>
+			</lightning-layout-item>
+			<lightning-layout-item if:true={showContent}>
+				<c-jc-text
+					content-type="H4"
+					content-text={heading}
+					content-align={contentAlign}
+					class="heading"
+					if:true={heading}
+				></c-jc-text>
+				<c-jc-text
+					content-type="P"
+					content-text={description}
+					content-align={contentAlign}
+					class="body"
+					if:true={description}
+				></c-jc-text>
+				<lightning-layout
+					class="slds-var-m-top_small"
+					horizontal-align={contentAlign}
+					pull-to-boundary="small"
+					if:true={showActions}
+				>
+					<lightning-layout-item padding="horizontal-small" if:true={showFirstAction}>
+						<c-jc-action label={firstActionText} variant={buttonType} url={firstActionUrl}></c-jc-action>
+					</lightning-layout-item>
+					<lightning-layout-item padding="horizontal-small" if:true={showSecondAction}>
+						<c-jc-action label={secondActionText} variant={buttonType} url={secondActionUrl}></c-jc-action>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+			<lightning-layout-item class="slds-var-p-left_small" if:true={iconRight}>
+				<lightning-icon
+					icon-name={iconName}
+					src={imageSrc}
+					size={size}
+					alternative-text={imageAssertiveText}
+					title={imageAssertiveText}
+					class="slds-current-color"
+				></lightning-icon>
+			</lightning-layout-item>
+		</lightning-layout>
+	</section>
+</template>

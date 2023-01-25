@@ -1,0 +1,38 @@
+<template>
+	<!-- Custom styling class -->
+	<div class="jc-component slds-is-relative">
+		<lightning-spinner variant="brand" alternative-text="Loading..." if:false={isLoaded}></lightning-spinner>
+
+		<!-- Link component; passed in object array with (Id, Name, Url, isFollowing) -->
+		<c-jc-link-list
+			items={topics}
+			display-type={displayType}
+			separator={separator}
+			show-follow={showFollow}
+			onfollowchange={handleFollowChange}
+		></c-jc-link-list>
+
+		<!-- Zero State Message for Topics -->
+		<c-jc-text if:false={displayZero} content-type="p.lead" content-text={zeroStateMessage}></c-jc-text>
+
+		<!-- Display Suggested Topics; in same format as regular component -->
+		<template if:true={showSuggestedTopics}>
+			<div class="slds-m-top_large">
+				<c-jc-text content-type="h4" content-text={suggestedTopicsTitle}></c-jc-text>
+				<c-jc-link-list
+					items={suggestedTopics}
+					display-type={displayType}
+					separator={separator}
+					show-follow={showFollow}
+					onfollowchange={handleFollowChange}
+				></c-jc-link-list>
+			</div>
+			<!-- Zero State Message for Suggested Topics -->
+			<c-jc-text
+				if:false={displayZeroSuggested}
+				content-type="p.lead"
+				content-text={zeroStateMessageSuggested}
+			></c-jc-text>
+		</template>
+	</div>
+</template>

@@ -1,0 +1,82 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+.recordDetails lightning-accordion-section > section {
+    padding: var(--lwc-varSpacingSmall) 0;
+}
+.recordDetails lightning-accordion-section > section .slds-accordion__summary {
+    margin-left: 0;
+    margin-right: 0;
+}
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading {
+    border: 1px solid transparent;
+}
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button {
+    background-color: #f3f2f2;
+    background-color: var(--lwc-colorBackground);
+    color: currentColor;
+    font-size: inherit;
+    padding: var(--lwc-spacingNone) var(--lwc-varSpacingXSmall);
+    line-height: 1.875rem;
+    border: 1px solid transparent;
+}
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:focus {
+    outline: 0;
+    box-shadow: var(--lwc-shadowButtonFocus);
+}
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:hover,
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:focus,
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:active {
+    background: var(--lwc-colorBackgroundButtonDefaultActive);
+    color: inherit;
+}
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:hover svg,
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:focus svg,
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:active svg {
+    color: var(--lwc-colorTextIconDefault);
+}
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:hover,
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:focus,
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:active,
+.recordDetails lightning-accordion-section > section .slds-accordion__summary .slds-accordion__summary-heading button:visited {
+    text-decoration: none;
+}
+
+.recordDetails lightning-record-form form {
+    padding: var(--lwc-spacingNone) var(--lwc-varSpacingSmall);
+}
+
+.recordDetails lightning-record-form lightning-output-field.slds-form-element {
+    height: 100%;
+    margin-bottom: var(--lwc-varSpacingXxSmall);
+    border-bottom: 1px solid var(--lwc-colorBorder);
+}
+.recordDetails lightning-record-form lightning-output-field.slds-form-element lightning-button-icon {
+    position: absolute;
+}
+.recordDetails lightning-record-form lightning-output-field.slds-form-element lightning-button-icon .slds-button__icon {
+    color: var(--lwc-colorTextButtonInverse);
+    fill: currentColor;
+}
+.recordDetails lightning-record-form lightning-output-field.slds-form-element .slds-form-element__control .slds-border_bottom {
+    border-bottom: none;
+}
+.recordDetails lightning-record-form lightning-output-field.slds-form-element.slds-hint-parent:hover button:hover .slds-button__icon,
+.recordDetails lightning-record-form lightning-output-field.slds-form-element.slds-hint-parent:focus button:hover .slds-button__icon {
+    fill: var(--lwc-colorTextIconDefault);
+}
+
+.recordDetails lightning-record-form lightning-input-field .slds-form-element__row {
+    display: flex;
+    align-items: flex-end;
+}
+
+.recordDetails lightning-record-form .slds-form-element .slds-form-element__label {
+    max-width: 100%;
+}
+
+.recordDetails lightning-record-form .slds-form-element .slds-form-element__control {
+    padding-left: var(--lwc-spacingNone);
+    clear: left;
+}

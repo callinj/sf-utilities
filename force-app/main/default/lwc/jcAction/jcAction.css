@@ -1,0 +1,86 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+:host .iconOnly {
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+
+:host .iconOnly.overSized {
+  padding-top: 13.5px;
+  padding-bottom: 13.5px;
+}
+
+:host lightning-icon {
+  margin-bottom: 1px;
+}
+
+:host .slds-button {
+  text-align: var(--action-font-align, center);
+}
+
+:host .bold {
+  font-weight: bold;
+}
+
+:host .underline:hover {
+  text-decoration: underline;
+}
+
+:host .darkFont {
+  color: #000;
+}
+
+:host .slds-button_success {
+  color: #fff;
+}
+
+:host .slds-button_inverse:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #000;
+}
+
+:host .customColor.slds-button_inverse:hover,
+:host .customColor.slds-button_inverse:focus {
+  color: #fff !important;
+}
+
+:host .customColor.slds-button_inverse.isHoverLight:hover,
+:host .customColor.slds-button_inverse.isHoverLight:focus {
+  color: #000 !important;
+}
+
+:host .customColor.slds-button_brand.isHoverLight:hover,
+:host .customColor.slds-button_brand.isHoverLight:focus {
+  color: #000;
+}
+
+:host .customColor.slds-button_brand.isActiveLight:active {
+  color: #000;
+}
+
+:host .customColor.darkFont:not(.isBare) {
+  color: #000;
+}
+
+:host .overSized {
+  padding: 6px var(--lwc-varSpacingXLarge);
+  font-size: var(--lwc-varFontSize5);
+}
+
+:host .overSized lightning-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+:host a.slds-button_stretch {
+  width: 100%;
+  text-align: center;
+}
+
+:host a.slds-button,
+:host button.slds-button {
+  border-radius: var(--jc-action-border-radius, var(--lwc-borderRadiusMedium, 25rem));
+}

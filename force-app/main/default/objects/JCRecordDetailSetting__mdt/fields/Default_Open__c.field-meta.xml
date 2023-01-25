@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Open__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Specifies whether the accordion is open by default or not</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Specifies whether the accordion is open by default or not</inlineHelpText>
+    <label>Default Open</label>
+    <type>Checkbox</type>
+</CustomField>

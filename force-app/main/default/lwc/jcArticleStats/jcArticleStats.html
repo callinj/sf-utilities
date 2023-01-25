@@ -1,0 +1,56 @@
+<template>
+	<lightning-layout if:true={record} vertical-align="center">
+		<template if:true={showViews}>
+			<lightning-layout-item>
+				<lightning-layout vertical-align="center">
+					<lightning-layout-item class="slds-var-m-right_xxx-small">
+						<c-jc-text content-type="p" content-text={views} no-space></c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item>
+						<c-jc-text content-type="p" content-text={viewsLabel} no-space></c-jc-text>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+		</template>
+
+		<template if:true={showDate}>
+			<lightning-layout-item class="slds-var-m-horizontal_xx-small" if:true={showDateHyphen}
+				>&#45;</lightning-layout-item
+			>
+			<lightning-layout-item>
+				<c-jc-text content-type="p" no-space
+					><lightning-formatted-date-time value={date}></lightning-formatted-date-time>
+				</c-jc-text>
+			</lightning-layout-item>
+		</template>
+		<template if:true={displayTopics}>
+			<lightning-layout-item class="slds-var-m-horizontal_xx-small" if:true={showTopicHyphen}
+				>&#45;</lightning-layout-item
+			>
+			<lightning-layout-item>
+				<lightning-layout vertical-align="center">
+					<template iterator:it={topics}>
+						<lightning-layout-item key={it.value.id}>
+							<c-jc-action
+								variant="Special Text Link"
+								label={it.value.name}
+								url={it.value.id}
+								custom-color={fontColor}
+								if:false={disableActions}
+							></c-jc-action>
+							<c-jc-text
+								content-type="p"
+								content-text={it.value.name}
+								if:true={disableActions}
+								no-space
+							></c-jc-text>
+						</lightning-layout-item>
+						<lightning-layout-item key={it.value.id} if:false={it.last}>
+							<span class="slds-var-m-horizontal_xx-small">&vert;</span>
+						</lightning-layout-item>
+					</template>
+				</lightning-layout>
+			</lightning-layout-item>
+		</template>
+	</lightning-layout>
+</template>

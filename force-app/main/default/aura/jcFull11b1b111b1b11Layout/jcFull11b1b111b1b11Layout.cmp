@@ -1,0 +1,63 @@
+<aura:component
+	implements="forceCommunity:layout"
+	description="1 Full, 1 column, 3 Columns, 1:1:1 ratio, 1 column, 3 Columns, 1:1:1 ratio, 1 column"
+	access="global"
+>
+	<aura:attribute name="FullWidth" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="Header" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="Content" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="Sidebar" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="SecondaryFeatured" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="SecondarySidebarAlt" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="SecondarySidebar" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="Footer" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="SidebarAlt" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="Featured" type="Aura.Component[]" required="false"></aura:attribute>
+	<aura:attribute name="isInBuilder" type="Boolean" default="false"></aura:attribute>
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+	<c:jcUtils aura:id="jcUtils" />
+	<div class="layout">
+		<aura:if isTrue="{!v.FullWidth.length > 0 || v.isInBuilder}">
+			<div class="layout-header layout-full">{!v.FullWidth}</div>
+		</aura:if>
+		<aura:if isTrue="{!v.Header.length > 0 || v.isInBuilder}">
+			<div class="layout-single slds-var-p-around_small">{!v.Header}</div>
+		</aura:if>
+		<aura:if
+			isTrue="{!(v.SidebarAlt.length > 0 || v.Featured.length > 0 || v.Sidebar.length > 0) || v.isInBuilder}"
+		>
+			<lightning:layout multipleRows="true" class="layout-content">
+				<lightning:layoutItem size="12" mediumDeviceSize="4" padding="around-small" class="content">
+					{!v.Sidebar}
+				</lightning:layoutItem>
+				<lightning:layoutItem size="12" mediumDeviceSize="4" padding="around-small" class="content-middle">
+					{!v.Featured}
+				</lightning:layoutItem>
+				<lightning:layoutItem size="12" mediumDeviceSize="4" padding="around-small" class="sidebar">
+					{!v.SidebarAlt}
+				</lightning:layoutItem>
+			</lightning:layout>
+		</aura:if>
+		<aura:if isTrue="{!v.Content.length > 0 || v.isInBuilder}">
+			<div class="layout-single slds-var-p-around_small">{!v.Content}</div>
+		</aura:if>
+		<aura:if
+			isTrue="{!(v.SecondarySidebar.length > 0 || v.SecondaryFeatured.length > 0 || v.SecondarySidebarAlt.length > 0) || v.isInBuilder}"
+		>
+			<lightning:layout multipleRows="true" class="layout-content">
+				<lightning:layoutItem size="12" mediumDeviceSize="4" padding="around-small" class="content">
+					{!v.SecondarySidebar}
+				</lightning:layoutItem>
+				<lightning:layoutItem size="12" mediumDeviceSize="4" padding="around-small" class="content-middle">
+					{!v.SecondaryFeatured}
+				</lightning:layoutItem>
+				<lightning:layoutItem size="12" mediumDeviceSize="4" padding="around-small" class="sidebar">
+					{!v.SecondarySidebarAlt}
+				</lightning:layoutItem>
+			</lightning:layout>
+		</aura:if>
+		<aura:if isTrue="{!v.Footer.length > 0 || v.isInBuilder}">
+			<div class="layout-footer slds-var-p-around_small">{!v.Footer}</div>
+		</aura:if>
+	</div>
+</aura:component>

@@ -1,0 +1,43 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<lightning-spinner
+			if:false={isLoaded}
+			alternative-text="Loading..."
+			size="medium"
+			variant="brand"
+		></lightning-spinner>
+
+		<div if:true={isLoaded}>
+			<c-jc-datatable
+				if:true={hasResults}
+				records={talentDecisions}
+				columns={columns}
+				show-checkboxes={showCheckboxes}
+				show-row-numbers={showRowNumbers}
+				column-widths-mode={columnWidthsMode}
+				enable-column-resizing={enableColumnResizing}
+				show-table-header={showTableHeader}
+			>
+			</c-jc-datatable>
+		</div>
+
+		<div class="slds-var-m-top_medium" if:true={hasResults}>
+			<c-jc-pagination
+				show-pagination-condition={enablePaginationFeature}
+				total-items={talentDecisionTotal}
+				onupdate={handlePaginatorChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={buttonVariant}
+				large-buttons={largeButtons}
+			>
+			</c-jc-pagination>
+		</div>
+
+		<!-- Display Zero State Message -->
+		<c-jc-text if:false={hasResults} content-type="p.lead" content-text={zeroStateMessage} no-space></c-jc-text>
+	</section>
+</template>

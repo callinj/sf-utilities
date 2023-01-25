@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Spacer</masterLabel>
+    <description>Select size of the spacer you would like from the options below.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__AppPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="size" type="String" label="Select Spacer Size" role="inputOnly" />
+            <property name="rule" type="Boolean" label="Add Rule" role="inputOnly" />
+            <property
+				name="customClass"
+				type="String"
+				label="Add Class"
+				description="Custom CSS class name(s)."
+				role="inputOnly"
+			/>
+        </targetConfig>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="size"
+				type="String"
+				label="Select Spacer Size"
+				datasource="Default,XXXX-Large,XXX-Large,XX-Large,X-Large,Large,Small,X-Small,XX-Small,XXX-Small,No Space"
+			/>
+            <property name="rule" type="Boolean" label="Add Rule" />
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

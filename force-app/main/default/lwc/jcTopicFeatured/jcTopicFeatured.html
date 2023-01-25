@@ -1,0 +1,212 @@
+<template>
+	<div class="jc-component slds-is-relative">
+		<!-- <lightning-spinner variant="brand" alternative-text="Loading..." if:false={isLoaded}></lightning-spinner> -->
+		<template if:true={displayTopics}>
+			<!-- <c-jc-grid-list
+						items={featuredTopics}
+						is-loaded={isLoaded}
+						show-views={showViews}
+						show-date={showDate}
+						show-topics={showTopics}
+						topic-count={topicCount}
+						show-summary={showSummary}
+						pagination-location={paginationLocation}
+						large-buttons={largeButtons}
+						default-background={defaultBackground}
+						content-align={contentAlign}
+						text-alignment={textAlignment}
+						truncate-title={truncateTitle}
+						truncate-summary={truncateSummary}
+						image-scale={imageScale}
+						image-position={imagePosition}
+						border-radius={borderRadius}
+						visor-blend-mode={visorBlendMode}
+						show-border={showBorder}
+						show-sort-options={showSortOptions}
+						default-sort-order={defaultSortOrder}
+						topic-position={topicPosition}
+						columns={columns}
+						previous-button={previousButton}
+						next-button={nextButton}
+						show-as-buttons={showAsButtons}
+						page-size-options={pageSizeOptions}
+						icon-color={iconColor}
+						search-identifier={searchIdentifier}
+						icon-hover-color={iconHoverColor}
+						visor-color={visorColor}
+						visor-color-hover={visorColorHover}
+						visor-opacity={visorOpacity}
+						tile-icon={tileIcon}
+						dark-font={darkFont}
+						border-color={borderColor}
+						image-height={imageHeight}
+						gutter-size={gutterSize}
+						zero-state-message={zeroStateMessage}
+						onpaginationchange={handlePaginatorChange}
+						onsortchange={handleSortOption}
+						ontileclick={handleTileClick}
+						if:true={imageTiles}
+					></c-jc-grid-list> -->
+			<c-jc-grid-list
+				items={featuredTopics}
+				is-loaded={isLoaded}
+				show-follower-count={showFollowerCount}
+				show-article-count={showArticleCount}
+				show-discussion-count={showDiscussionCount}
+				show-follow-button={showFollowButton}
+				multi-line-stats={multiLineStats}
+				multi-line-follow={multiLineFollow}
+				default-background={defaultBackground}
+				content-align={contentAlign}
+				text-alignment={textAlignment}
+				image-scale={imageScale}
+				image-position={imagePosition}
+				visor-blend-mode={visorBlendMode}
+				search-identifier={searchIdentifier}
+				visor-color={visorColor}
+				visor-opacity={visorOpacity}
+				dark-font={darkFont}
+				image-height={tileHeight}
+				zero-state-message={zeroStateMessage}
+				ontileclick={handleTileClick}
+				if:true={imageTiles}
+			>
+				<span slot="stats">
+					<p>Test</p>
+				</span>
+				<!-- <span slot="stats">
+					<lightning-layout horizontal-align={statAlignment} class="pointer" data-id={topic.id} onclick={handleClick}>
+						<lightning-layout-item>
+							<c-jc-topic-stats
+								record={topic}
+								show-follower-count={showFollowerCount}
+								show-article-count={showArticleCount}
+								show-discussion-count={showDiscussionCount}
+								show-follow-button={showFollowButton}
+								dark-font={darkFont}
+								alignment={statAlignment}
+								variant="text"
+								multi-line-stats={multiLineStats}
+								multi-line-follow={multiLineFollow}
+								follow-padding
+							></c-jc-topic-stats>
+						</lightning-layout-item>
+					</lightning-layout>
+				</span> -->
+			</c-jc-grid-list>
+		</template>
+
+		<lightning-layout if:true={displayTopics} vertical-align="center" pull-to-boundary="small" multiple-rows>
+			<template for:each={featuredTopics} for:item="topic">
+				<!-- Image Tiles View -->
+				<!-- <template if:true={imageTiles}>
+
+					<lightning-layout-item key={topic.id} size="12" medium-device-size={mediumDeviceSize} large-device-size={columns} padding="around-small">
+						<a href="javascript:void();" data-id={topic.id} onclick={handleClick}>
+							<c-jc-banner
+								heading={topic.name}
+								image-url={topic.image}
+								background-position={imagePosition}
+								background-size={imageScale}
+								content-align={contentAlign}
+								text-align={textAlignment}
+								dark-font={darkFont}
+								blend-mode={visorBlendMode}
+								banner-height={tileHeight}
+								visor-color={visorColor}
+								visor-opacity={visorOpacity}
+								has-rounded-corners={hasRoundedCorners}
+								truncation-heading={truncation}
+							>
+
+							</c-jc-banner>
+						</a>
+					</lightning-layout-item>
+				</template> -->
+
+				<!-- List View -->
+				<template if:true={list}>
+					<lightning-layout-item
+						key={topic.id}
+						size="12"
+						medium-device-size={mediumDeviceSize}
+						large-device-size={columns}
+						padding="around-small"
+					>
+						<lightning-layout horizontal-align="spread" vertical-align="center" pull-to-boundary="medium">
+							<lightning-layout-item padding="horizontal-medium">
+								<lightning-layout vertical-align={verticalAlign} pull-to-boundary="medium">
+									<lightning-layout-item padding="horizontal-medium">
+										<lightning-icon
+											icon-name="utility:animal_and_nature"
+											size={iconSize}
+										></lightning-icon>
+									</lightning-layout-item>
+									<lightning-layout-item padding="horizontal-medium">
+										<lightning-layout>
+											<lightning-layout-item>
+												<c-jc-action
+													variant="Special Text Link"
+													label={topic.name}
+													url={topic.id}
+												></c-jc-action>
+												<!-- <c-jc-text
+                                                    class="link pointer"
+                                                    content-type="p.lead"
+                                                    content-text={topic.name}
+                                                    truncation={truncation}
+                                                    data-id={topic.id}
+                                                    onclick={handleClick}
+                                                    no-space
+                                                ></c-jc-text> -->
+
+												<lightning-layout
+													if:true={multiLineStats}
+													horizontal-align={statAlignment}
+												>
+													<lightning-layout-item>
+														<c-jc-topic-stats
+															record={topic}
+															show-follower-count={showFollowerCount}
+															show-article-count={showArticleCount}
+															show-discussion-count={showDiscussionCount}
+															show-follow-button={showFollowButton}
+															alignment={statAlignment}
+															variant="icon"
+															multi-line-stats={multiLineStats}
+															multi-line-follow={multiLineFollow}
+														></c-jc-topic-stats>
+													</lightning-layout-item>
+												</lightning-layout>
+											</lightning-layout-item>
+										</lightning-layout>
+									</lightning-layout-item>
+								</lightning-layout>
+							</lightning-layout-item>
+							<lightning-layout-item padding="horizontal-medium" if:false={multiLineStats}>
+								<lightning-layout horizontal-align={statAlignment} vertical-align="center">
+									<lightning-layout-item>
+										<c-jc-topic-stats
+											record={topic}
+											show-follower-count={showFollowerCount}
+											show-article-count={showArticleCount}
+											show-discussion-count={showDiscussionCount}
+											show-follow-button={showFollowButton}
+											alignment={statAlignment}
+											variant="icon"
+											multi-line-stats={multiLineStats}
+											multi-line-follow={multiLineFollow}
+										></c-jc-topic-stats>
+									</lightning-layout-item>
+								</lightning-layout>
+							</lightning-layout-item>
+						</lightning-layout>
+					</lightning-layout-item>
+				</template>
+			</template>
+		</lightning-layout>
+
+		<!-- Zero State Message -->
+		<!-- <c-jc-text if:false={displayTopics} content-type="p.lead" content-text={zeroStateMessage} content-align="center" no-space></c-jc-text> -->
+	</div>
+</template>

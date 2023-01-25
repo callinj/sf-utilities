@@ -1,0 +1,82 @@
+<template>
+	<section class="jc-component" if:true={loaded}>
+		<div if:true={validConfig}>
+			<lightning-layout horizontal-align="start" vertical-align="center" class="slds-var-p-vertical_xx-small">
+				<lightning-layout-item class="slds-var-m-right_x-large" if:true={listTitle}>
+					<c-jc-text
+						content-type="h3"
+						content-text={listTitle}
+						custom-class="bold"
+						no-space
+						if:true={listTitle}
+					></c-jc-text>
+				</lightning-layout-item>
+				<lightning-layout-item class="slds-var-m-right_x-large" if:true={filterList}>
+					<lightning-combobox
+						name="filter"
+						label="Filter:"
+						value={selectedFilter}
+						placeholder="Select Progress"
+						dropdown-alignment="auto"
+						variant="label-inline"
+						options={filterList}
+						onchange={filterChange}
+						class="slds-var-m-bottom_none"
+					></lightning-combobox>
+				</lightning-layout-item>
+				<!-- <lightning-layout-item class="slds-col_bump-left">
+                    <lightning-layout horizontal-align="end" vertical-align="center" multiple-rows>
+                        <lightning-layout-item>
+                            <p>
+                                <span class="bold"><span class="success">{successStats.totalSuccess}</span>/{successStats.totalItems}</span> Completed
+                                <template if:true={showPercentage}> ({successStats.successPercentage}%)</template>
+                            </p>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="buttonSection slds-var-m-left_x-large slds-hide">
+                            <slot name="buttons" onslotchange={handleSlotChange}></slot>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item> -->
+			</lightning-layout>
+			<lightning-tabset variant="vertical" if:true={displayTabs}>
+				<template for:each={tabList} for:item="item" for:index="index">
+					<lightning-tab
+						label={item.label}
+						end-icon-name={item.icon}
+						end-icon-alternative-text="Check Mark"
+						title={item.title}
+						value={item.id}
+						onactive={tabActivated}
+						class="slds-var-p-vertical_large"
+						key={item.id}
+					>
+						<template for:each={settings} for:item="setting" for:index="indexVariable">
+							<!-- <c-jc-record-details custom-setting={setting.Id} record-id={item.id} custom-class="slds-var-p-bottom_small" key={setting.Id}></c-jc-record-details> -->
+							<c-jc-talent-decision-detail
+								record-id={item.id}
+								columns="3"
+								custom-fields={setting.Fields__c}
+								hide-empty-fields
+								key={item.id}
+							></c-jc-talent-decision-detail>
+						</template>
+					</lightning-tab>
+				</template>
+			</lightning-tabset>
+			<lightning-card if:false={displayTabs}>
+				<c-jc-text content-type="h2" content-text="No Records Found"></c-jc-text>
+				<c-jc-text
+					content-type="p"
+					content-text="There were no records found that match this criteria"
+				></c-jc-text>
+			</lightning-card>
+		</div>
+		<div if:false={validConfig}>
+			<c-jc-text content-type="h2" content-text="Invalid Configuration"></c-jc-text>
+			<c-jc-text
+				content-type="p"
+				content-text="There is no configuration set up for this detail tabs set. Please have a System Administrator setup a configuration to properly display this component."
+			></c-jc-text>
+		</div>
+	</section>
+</template>

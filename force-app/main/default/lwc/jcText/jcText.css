@@ -1,0 +1,77 @@
+:host h1,
+:host h2,
+:host h3,
+:host h4,
+:host h5,
+:host h6 {
+	line-height: var(--lwc-lineHeightReset, 1);
+	font-weight: var(--lwc-fontWeightBold, 700);
+}
+:host h5,
+:host h6 {
+	line-height: var(--lwc-lineHeightText, 1.5);
+}
+:host h1 {
+	font-size: var(--lwc-varFontSize11, 2.625rem);
+}
+:host h2 {
+	font-size: var(--lwc-varFontSize10, 2rem);
+}
+:host h2 lightning-formatted-rich-text {
+	line-height: 1.147;
+}
+:host h3 {
+	font-size: var(--lwc-varFontSize9, 1.75rem);
+}
+:host h4 {
+	font-size: var(--lwc-varFontSize8, 1.5rem);
+}
+:host h5 {
+	font-size: var(--lwc-varFontSize7, 1.25rem);
+}
+:host h6 {
+	font-size: var(--lwc-varFontSize6, 1.125rem);
+}
+:host p {
+	font-size: var(--lwc-varFontSize2, 0.75rem);
+	line-height: var(--lwc-lineHeightText, 1.5);
+}
+:host p.lead {
+	font-size: var(--lwc-varFontSize5, 1rem);
+}
+:host p.small {
+	font-weight: bold;
+	font-size: var(--lwc-varFontSize1, 0.625rem);
+}
+:host .x-large-icon .icon-wrapper {
+	margin-right: var(--lwc-varSpacingXSmall, 0.5rem);
+}
+:host .text-upper {
+	text-transform: uppercase;
+}
+:host .text-lower {
+	text-transform: lowercase;
+}
+:host .text-cap {
+	text-transform: capitalize;
+}
+:host .slds-line-clamp_xx-small {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre-line;
+}
+:host.lightFont {
+	color: #fff;
+}
+:host.bold {
+	font-weight: bold;
+}
+:host.no-space > lightning-layout {
+	margin: var(--lwc-spacingNone, 0rem);
+}
+:host.no-margin > lightning-layout {
+	margin-bottom: calc(-1 * var(--lwc-varSpacingLarge, 1.5rem));
+}

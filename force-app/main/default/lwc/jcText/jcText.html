@@ -1,0 +1,46 @@
+<template>
+	<lightning-layout horizontal-align={align} vertical-align="center" class={textClass} if:true={loaded}>
+		<lightning-layout-item>
+			<template if:true={isHeading}>
+				<h1 class={contentClass} if:true={h1}>
+					<slot>
+						<lightning-formatted-rich-text value={text}></lightning-formatted-rich-text>
+					</slot>
+				</h1>
+				<h2 class={contentClass} if:true={h2}>
+					<slot>
+						<lightning-formatted-rich-text value={text}></lightning-formatted-rich-text>
+					</slot>
+				</h2>
+				<h3 class={contentClass} if:true={h3}>
+					<slot>
+						<lightning-formatted-rich-text value={text}></lightning-formatted-rich-text>
+					</slot>
+				</h3>
+				<h4 class={contentClass} if:true={h4}>
+					<slot>
+						<lightning-formatted-rich-text value={text}></lightning-formatted-rich-text>
+					</slot>
+				</h4>
+				<h5 class={contentClass} if:true={h5}>
+					<slot>
+						<lightning-formatted-rich-text value={text}></lightning-formatted-rich-text>
+					</slot>
+				</h5>
+				<h6 class={contentClass} if:true={h6}>
+					<slot>
+						<lightning-formatted-rich-text value={text}></lightning-formatted-rich-text>
+					</slot>
+				</h6>
+			</template>
+			<template if:false={isHeading}>
+				<p class={contentClass}>
+					<slot>
+						<lightning-formatted-rich-text value={text}></lightning-formatted-rich-text>
+					</slot>
+				</p>
+			</template>
+		</lightning-layout-item>
+	</lightning-layout>
+	<!-- <c-jc-stencil iterations="2" columns="2" show-actions></c-jc-stencil> -->
+</template>

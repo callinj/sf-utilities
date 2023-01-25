@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Topic Related List</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="topicSource"
+				type="String"
+				label="Select Topic Source"
+				description="Select Topic Source Description"
+				datasource="My Followed Topics,Expand Current Topic,Trending Topics"
+				default="My Followed Topics"
+			/>
+            <property
+				name="displayType"
+				type="String"
+				label="Display Type"
+				description="Select the layout to use to display the topics."
+				datasource="Inline Text,List"
+				default="Inline Text"
+			/>
+            <property
+				name="separator"
+				type="String"
+				label="Separator"
+				description="Specifies the separator for when the displayOrder is 'Inline Text'"
+				datasource="Vertical Rule,Comma"
+			/>
+            <property
+				name="suggestedTopicsToDisplay"
+				type="String"
+				label="Suggested Topics To Display"
+				description="Number of Suggested Topics to display"
+				datasource="None,1,2,3,4,5"
+				default="None"
+			/>
+             <property
+				name="suggestedTopicsTitle"
+				type="String"
+				label="Suggested Topics Title"
+				description="Enter the label you want displayed for the 'Suggested Topics'"
+				default="Suggested Topics"
+			/>
+            <property
+				name="showFollow"
+				type="Boolean"
+				label="Displays the Follow Status"
+				default="true"
+				description="Specifies whether or not to show the follow button"
+			/>
+            <!-- <property name="showBullets" type="Boolean" label="Displays List View With Bullets" default="false" /> -->
+            <property
+				name="zeroStateMessage"
+				type="String"
+				label="Zero State Message"
+				description="Message the user sees when no results are returned"
+				default="No Topics Found"
+			/>
+            <property
+				name="zeroStateMessageSuggested"
+				type="String"
+				label="Zero State Message for Suggested Topics"
+				description="Message the user sees when no suggested results are returned"
+				default="No Suggested Topics Found"
+			/>
+            <property
+				name="searchIdentifier"
+				type="String"
+				label="Search Identifier"
+				description="Identify the Search Identifier to communicate with partner component.  Search Identifier must be the exact same as it's partner component."
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+            <property
+				name="recordId"
+				type="String"
+				label="Record Id"
+				description="Automatically bind the page's record id to the component variable"
+				default="{!recordId}"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

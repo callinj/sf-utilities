@@ -1,0 +1,89 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<!-- <lightning-spinner variant="brand" alternative-text="Loading..." if:false={loaded}></lightning-spinner> -->
+		<c-jc-grid-list
+			items={articles}
+			is-loaded={loaded}
+			show-views={showViews}
+			show-date={showDate}
+			show-topics={showTopics}
+			topic-count={topicCount}
+			show-summary={showSummary}
+			default-background={defaultBackground}
+			content-align={contentAlign}
+			text-alignment={textAlignment}
+			truncate-title={truncateTitle}
+			truncate-summary={truncateSummary}
+			image-scale={imageScale}
+			image-position={imagePosition}
+			border-radius={borderRadius}
+			visor-blend-mode={visorBlendMode}
+			show-border={showBorder}
+			topic-position={topicPosition}
+			columns={columns}
+			icon-color={iconColor}
+			search-identifier={searchIdentifier}
+			icon-hover-color={iconHoverColor}
+			visor-color={visorColor}
+			visor-opacity={visorOpacity}
+			dark-font={darkFont}
+			border-color={borderColor}
+			image-height={tileHeight}
+			gutter-size={gutterSize}
+			zero-state-message={zeroStateMessage}
+			ontileclick={handleTileClick}
+		></c-jc-grid-list>
+		<!-- <lightning-layout if:true={displayArticles} vertical-align="center" pull-to-boundary="small" multiple-rows>
+            <template for:each={articles} for:item="article">
+                <lightning-layout-item key={article.id} size="12" medium-device-size={mediumDeviceSize} large-device-size={columns} padding="around-small">
+                    <a href="javascript:void();" data-id={article.id} onclick={handleClick}>
+                        <c-jc-banner
+                        >
+                            <template if:true={showTopTopics}>
+                                <span slot="top" if:true={article.assignedTopics}>
+                                    <lightning-layout horizontal-align={statAlignment}>
+                                        <lightning-layout-item>
+                                            <c-jc-article-stats record={article} dark-font={darkFont} show-topics></c-jc-article-stats>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </span>
+                            </template>
+                            <lightning-layout class="slds-var-p-top_xx-large" slot="top" if:true={article.platform}>
+                                <lightning-layout-item>
+                                    <c-jc-text content-type="P.lead" content-text={article.platform} dark-font={darkFont}></c-jc-text>
+                                </lightning-layout-item>
+                            </lightning-layout>
+
+                            <template if:true={showBottomTopics}>
+                                <span slot="bottom" if:true={article.assignedTopics}>
+                                    <lightning-layout horizontal-align={statAlignment}>
+                                        <lightning-layout-item>
+                                            <c-jc-article-stats record={article} dark-font={darkFont} show-topics></c-jc-article-stats>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </span>
+                            </template>
+
+                            <template if:true={showSummary}>
+                                <span slot="description" if:true={article.summary}>
+                                    <c-jc-text content-type="P" content-text={article.summary} content-align={textAlignment} truncation={truncateSummary}></c-jc-text>
+                                </span>
+                            </template>
+
+                            <span slot="stats" if:true={showStats}>
+                                <lightning-layout horizontal-align={statAlignment}>
+                                    <lightning-layout-item>
+                                        <c-jc-article-stats record={article} dark-font={darkFont} show-date={showDate} show-views={showViews}></c-jc-article-stats>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </span>
+                        </c-jc-banner>
+                    </a>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout> -->
+
+		<!-- Zero State Message -->
+		<!-- <c-jc-text if:false={displayArticles} content-type="p.lead" content-text={zeroStateMessage} content-align="center" no-space></c-jc-text>-->
+	</section>
+</template>

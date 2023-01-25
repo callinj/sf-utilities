@@ -1,0 +1,32 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<c-jc-record-detail-upsert
+			if:true={isEditMode}
+			record-id={recordId}
+			object-name={objectName}
+			custom-fields={customFields}
+			hide-empty-fields={hideEmptyFields}
+			columns={columns}
+			default-values={defaultValues}
+			record-type-label={recordTypeLabel}
+			enable-upload={enableUpload}
+			display-save-new={displaySaveNew}
+			disable-redirect={disableRedirect}
+			disabled-fields={disabledFields}
+			success-message={successMessage}
+			is-edit-mode={isEditMode}
+			onload={handleLoad}
+			onclose={handleClose}
+		></c-jc-record-detail-upsert>
+
+		<c-jc-record-detail-view
+			if:false={isEditMode}
+			record-id={recordId}
+			object-name={objectName}
+			custom-fields={customFields}
+			hide-empty-fields={hideEmptyFields}
+			columns={columns}
+			onload={handleLoad}
+		></c-jc-record-detail-view>
+	</section>
+</template>

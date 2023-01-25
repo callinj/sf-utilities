@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Search</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="placeholder"
+				type="String"
+				label="Placeholder Text"
+				default="Search..."
+				description="Specifies the search bar placeholder text."
+			/>
+            <property
+				name="dropdownPlaceholder"
+				type="String"
+				label="Dropdown Placeholder"
+				default="-- Select --"
+				description="Specifies the dropdown placeholder text."
+			/>
+            <property
+				name="searchFields"
+				type="String"
+				label="Search These Fields"
+				description="Input a comma-separated list of the fields to search; Defaults to 'Name'."
+			/>
+            <property
+				name="topicDropdowns"
+				type="String"
+				label="Number of Topic Dropdowns"
+				datasource="None,1,2,3,4"
+				default="None"
+			/>
+            <property
+				name="matchAll"
+				type="Boolean"
+				label="Match All Topics?"
+				description="If checked, will match all topics."
+			/>
+            <property
+				name="showToggle"
+				type="Boolean"
+				label="Show Match All Toggle"
+				description="If checked, displays the toggle button for controlling the match all functionality."
+			/>
+            <property
+				name="searchIdentifier"
+				type="String"
+				label="Search Identifier"
+				description="Identify the Search Identifier to communicate with partner component.  Search Identifier must be the exact same as it's partner component."
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+			<property
+				name="recordId"
+				type="String"
+				label="Record Id"
+				description="Reference a record id. This defaults to {!recordId} this will allow the component to reference the current record data when placed on a record detail page. You may also hardcode a record id, however that is not recommended."
+				default="{!recordId}"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

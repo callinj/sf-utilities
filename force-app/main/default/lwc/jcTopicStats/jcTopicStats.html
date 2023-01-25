@@ -1,0 +1,121 @@
+<template>
+	<lightning-layout if:true={record} horizontal-align="end" vertical-align="center" pull-to-boundary="small">
+		<!-- Layout when the variant = 'text' -->
+		<template if:true={isDefault}>
+			<lightning-layout-item if:true={showStats} class={verticalRule}>
+				<lightning-layout>
+					<lightning-layout-item if:true={showFollowerCount} padding="horizontal-small">
+						<c-jc-text
+							content-type="p"
+							content-text={followers}
+							content-align="center"
+							no-space
+						></c-jc-text>
+						<c-jc-text
+							content-type="p"
+							content-text={followerLabel}
+							content-align="center"
+							no-space
+						></c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item if:true={showArticleCount} padding="horizontal-small">
+						<c-jc-text content-type="p" content-text={articles} content-align="center" no-space></c-jc-text>
+						<c-jc-text
+							content-type="p"
+							content-text={articleLabel}
+							content-align="center"
+							no-space
+						></c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item if:true={showDiscussionCount} padding="horizontal-small">
+						<c-jc-text
+							content-type="p"
+							content-text={discussions}
+							content-align="center"
+							no-space
+						></c-jc-text>
+						<c-jc-text
+							content-type="p"
+							content-text={discussionLabel}
+							content-align="center"
+							no-space
+						></c-jc-text>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+			<template if:false={multiLineFollow}>
+				<lightning-layout-item
+					if:true={showFollowButton}
+					flexibility="no-shrink"
+					padding="horizontal-small"
+					class={followClass}
+				>
+					<c-jc-follow-link topic={record} dark-font={darkFont}></c-jc-follow-link>
+				</lightning-layout-item>
+			</template>
+		</template>
+
+		<!-- Layout when the varant = 'icon' -->
+		<template if:true={isIcon}>
+			<lightning-layout-item if:true={showFollowerCount} padding="horizontal-small">
+				<lightning-layout vertical-align="center">
+					<lightning-layout-item class="slds-var-m-right_x-small">
+						<c-jc-text
+							content-type="p.lead"
+							content-text={followers}
+							content-align="Center"
+							no-space
+						></c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item>
+						<lightning-icon icon-name="utility:groups" size="x-small"></lightning-icon>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+			<lightning-layout-item if:true={showArticleCount} padding="horizontal-small">
+				<lightning-layout vertical-align="center">
+					<lightning-layout-item class="slds-var-m-right_x-small">
+						<c-jc-text
+							content-type="p.lead"
+							content-text={articles}
+							content-align="Center"
+							no-space
+						></c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item>
+						<lightning-icon icon-name="utility:display_text" size="x-small"></lightning-icon>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+			<lightning-layout-item if:true={showDiscussionCount} padding="horizontal-small">
+				<lightning-layout vertical-align="center">
+					<lightning-layout-item class="slds-var-m-right_x-small">
+						<c-jc-text
+							content-type="p.lead"
+							content-text={discussions}
+							content-align="Center"
+							no-space
+						></c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item>
+						<lightning-icon icon-name="utility:anywhere_chat" size="x-small"></lightning-icon>
+					</lightning-layout-item>
+				</lightning-layout>
+			</lightning-layout-item>
+			<template if:false={multiLineFollow}>
+				<lightning-layout-item if:true={showFollowButton} padding="horizontal-small" class={followClass}>
+					<c-jc-follow-link topic={record}></c-jc-follow-link>
+				</lightning-layout-item>
+			</template>
+		</template>
+	</lightning-layout>
+
+	<template if:true={multiLineFollow}>
+		<lightning-layout if:true={record} horizontal-align={alignment} pull-to-boundary="small">
+			<lightning-layout-item if:true={showFollowButton} padding={padding}>
+				<c-jc-follow-link if:true={isIcon} topic={record}></c-jc-follow-link>
+				<c-jc-follow-link if:true={isDefault} topic={record} dark-font={darkFont}></c-jc-follow-link>
+			</lightning-layout-item>
+		</lightning-layout>
+	</template>
+</template>

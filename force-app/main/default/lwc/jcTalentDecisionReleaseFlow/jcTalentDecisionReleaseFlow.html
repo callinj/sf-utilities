@@ -1,0 +1,43 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<lightning-spinner variant="brand" alternative-text="Loading..." if:false={loaded}></lightning-spinner>
+
+		<div if:true={loaded}>
+			<div class="performance-period slds-var-m-bottom_small">
+				<c-jc-text content-type="p.lead" content-text="Select Performance Period:"></c-jc-text>
+				<lightning-combobox
+					name="performancePeriod"
+					variant="label-hidden"
+					label="Select Performance Period"
+					value={currentPerformancePeriod}
+					placeholder="Select Performance Period"
+					options={performancePeriodOptions}
+					onchange={handleChange}
+				>
+				</lightning-combobox>
+			</div>
+			<!-- If a checkbox is disabled, that means the talent decisions for the selected performance period for that user group has already been released. -->
+
+			<div class="user-group" if:true={currentPerformancePeriod}>
+				<lightning-layout>
+					<lightning-layout-item>
+						<c-jc-text content-type="p.lead" content-text="Select User Group:" no-space></c-jc-text>
+					</lightning-layout-item>
+					<lightning-layout-item if:true={helpText}>
+						<lightning-helptext content={helpText}></lightning-helptext>
+					</lightning-layout-item>
+				</lightning-layout>
+				<template for:each={rosters} for:item="userGroup">
+					<lightning-input
+						key={userGroup.name}
+						type="checkbox"
+						label={userGroup.label}
+						name={userGroup.name}
+						onchange={handleCheckboxChange}
+						disabled={userGroup.disabled}
+					></lightning-input>
+				</template>
+			</div>
+		</div>
+	</section>
+</template>

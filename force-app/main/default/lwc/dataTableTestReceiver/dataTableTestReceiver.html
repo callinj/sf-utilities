@@ -1,0 +1,40 @@
+<template>
+	<lightning-spinner if:false={isLoaded} alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+	<div if:true={isLoaded}>
+		<c-data-table-utility
+			if:true={hasResults}
+			get-data={data}
+			get-columns={columns}
+			hide-checkbox-col={checkboxValue}
+			show-row-num-col={rowNumValue}
+			column-widths-mode={colWidthValue}
+			resize-columns={resizeValue}
+			hide-table-header={colHeaderValue}
+		>
+		</c-data-table-utility>
+
+		<div class="slds-var-m-top_medium">
+			<c-jc-pagination
+				show-pagination-condition={showPaginationCondition}
+				total-items={totalResults}
+				onupdate={handlePaginatorChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={showAsButtons}
+				large-buttons={largeButtons}
+			></c-jc-pagination>
+		</div>
+
+		<!-- Display Zero State Message -->
+		<c-jc-text
+			if:false={hasResults}
+			content-type="p.lead"
+			content-text={zeroStateMessage}
+			content-align="center"
+			no-space
+		></c-jc-text>
+	</div>
+</template>

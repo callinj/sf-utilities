@@ -1,0 +1,7 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+:host.no-margin > section {
+	margin-bottom: calc(-1 * var(--lwc-varSpacingLarge));
+}

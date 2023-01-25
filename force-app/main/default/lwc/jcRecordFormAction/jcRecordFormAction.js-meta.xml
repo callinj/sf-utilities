@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Record Form Action</masterLabel>
+    <description>Component Description</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="actionVariant"
+				type="String"
+				label="Action Variant"
+				description="Controls the main look and feel of the action"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+			/>
+            <property
+				name="actionLabel"
+				type="String"
+				label="Action Label"
+				description="Text that will display for the action."
+			/>
+            <property
+				name="objectName"
+				type="String"
+				label="Object API Name"
+				description="API name of the object that will be used to load the form."
+			/>
+            <property
+				name="isEditMode"
+				type="Boolean"
+				label="Is Edit Mode?"
+				description="If checked, will display a record-edit-form."
+			/>
+            <property
+				name="formTitle"
+				type="String"
+				label="Form Title"
+				description="This is the title that will be displayed in the modal header"
+				default="New Record"
+			/>
+			<property
+				name="formDescription"
+				type="String"
+				label="Form Description"
+				description="This is text that will be displayed in the header under the title. This is meant to provide a additional help of what the form is capturing"
+			/>
+            <property
+				name="successMessage"
+				type="String"
+				label="Success Message"
+				description="This text will be displayed when a record is successfully created."
+				default="The record has been submitted successfully"
+			/>
+            <property
+				name="disabledFields"
+				type="String"
+				label="Disabled Fields"
+				description="A comma separated list of field API names that should be disabled on the form. For example, you may want to disable a field that has a default value set that shouldn't be changed"
+			/>
+            <property
+				name="defaultValues"
+				type="String"
+				label="Default Fields"
+				description="A comma separated list of field API names that should be defaulted on the form."
+			/>
+			<property
+				name="enableUpload"
+				type="Boolean"
+				label="Allow File Attachments"
+				description="If checked, a file uploader will display at the bottom of the form."
+			/>
+            <property
+				name="displaySaveNew"
+				type="Boolean"
+				label="Display Save &amp; New Action"
+				description="Check this to enable the Save &amp; New action. This will allow for easier creation of multiple records of this same type."
+			/>
+			<property
+				name="disableRedirect"
+				type="Boolean"
+				label="Disable Redirect"
+				description="Check this to disable the redirect to the record after the record is created."
+			/>
+            <property
+				name="actionLeftIcon"
+				type="String"
+				label="Select Left Icon"
+				description="Specify a SLDS icon to display on the action. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+            <property
+				name="actionRightIcon"
+				type="String"
+				label="Select Right Icon"
+				description="Specify a SLDS icon to display on the action. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+			<property
+				name="actionAlign"
+				type="String"
+				label="Action Alignment"
+				description="Controls the alignment of the action."
+				datasource="Left,Center,Right"
+				default="Left"
+			/>
+            <property
+				name="actionFullWidth"
+				type="Boolean"
+				label="Full Width"
+				description="Sets the action's width to fit the container."
+			/>
+            <property
+				name="actionOverSized"
+				type="Boolean"
+				label="Large action"
+				description="Controls whether or not to display a bigger action."
+			/>
+            <property
+				name="actionUnderline"
+				type="Boolean"
+				label="Underline"
+				description="Controls whether or not to underline the text."
+			/>
+            <property
+				name="actionBorderRadius"
+				type="String"
+				label="Border Radius"
+				description="Defines the radius of the action's corners. Supports the following properties: length (https://w3schools.com/cssref/css_units.asp), %, em, rem, initial and inherit. For more information, visit https://w3schools.com/cssref/css3_pr_border-radius.asp"
+			/>
+            <property
+				name="actionBorderThickness"
+				type="String"
+				label="Border Thickness"
+				description="Controls the action's border thickness. Supports the following properties: length (https://w3schools.com/cssref/css_units.asp), medium, thin, thick, initial, inherit. For more information, visit https://w3schools.com/cssref/pr_border-width.asp"
+			/>
+            <property
+				name="actionCustomColor"
+				type="String"
+				label="Custom Color"
+				description="Controls the color of the action."
+			/>
+            <property
+				name="customClasses"
+				type="String"
+				label="Add Custom Class Name(s)"
+				description="Use this attribute to easily add custom CSS classes to the component."
+			/>
+			<property
+				name="recordTypeLabel"
+				type="String"
+				label="Object Record Type Label"
+				description='Record type label of the record type that will be used to load the from. If left blank or an invalid record type is specified, the "Master" record type will be used.'
+			/>
+            <property
+				name="recordId"
+				type="String"
+				label="Current Record Id"
+				description="Reference a record id. This defaults to {!recordId} this will allow the component to reference the current record data when placed on a record detail page. You may also hardcode a record id, however that is not recommended."
+				default="{!recordId}"
+			/>
+            <property
+				name="objectApiName"
+				type="String"
+				label="Current Object Name"
+				description="Automatically bind the page's object name to the component variable. This defaults to {!objectApiName} this will allow the component to reference the current record object data when placed on a record detail page. You may also hardcode a object API name, however that is not recommended."
+				default="{!objectApiName}"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

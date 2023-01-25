@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2020.  Accenture All rights reserved.
+ *
+ * COMPILED FILE DO NOT DIRECTLY EDIT
+ */
+:host lightning-combobox.slds-form-element_horizontal {
+	margin: 0;
+	display: flex;
+	align-items: center;
+}
+:host .list-title .brandedText {
+	margin-bottom: 0;
+}
+:host .bold {
+	font-weight: bold;
+}
+:host .success {
+	color: var(--lwc-colorTextSuccess);
+}

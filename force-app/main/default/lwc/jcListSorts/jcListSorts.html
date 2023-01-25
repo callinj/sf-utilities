@@ -1,0 +1,19 @@
+<template>
+	<lightning-layout vertical-align="center">
+		<lightning-layout-item alignment-bump="left" padding="horizontal-small">
+			<c-jc-text content-type="p.lead" content-text="Sort By:" content-align="Center" no-space></c-jc-text>
+		</lightning-layout-item>
+		<template if:true={optionList} for:each={optionList} for:item="option">
+			<lightning-layout-item key={option.value} padding="horizontal-small">
+				<c-jc-action
+					variant="link"
+					label={option.label}
+					data-name={option.value}
+					bold={option.selected}
+					custom-color={fontColor}
+					onclick={handleSortOption}
+				></c-jc-action>
+			</lightning-layout-item>
+		</template>
+	</lightning-layout>
+</template>

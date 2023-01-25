@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2021.  Accenture All rights reserved.
+ * This file was compiled using Sass. https://sass-lang.com/
+ */
+:host {
+	--action-font-align: left;
+}
+:host hr {
+	margin: 0px;
+}

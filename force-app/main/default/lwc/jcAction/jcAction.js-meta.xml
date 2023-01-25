@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Branded Action</masterLabel>
+    <description>Select which style of action you would like from the options below.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property
+				name="variant"
+				type="String"
+				label="Button Variant"
+				description="Controls the main look and feel of the button"
+				datasource="Brand,Brand Outline,Destructive,Destructive Text,Inverse,Neutral,Success,Special Text Link"
+			/>
+            <property name="label" type="String" label="Text" description="Text that will display for the buttton." />
+            <property name="url" type="String" label="URL Link" description="URL the button will navigate to." />
+            <property
+				name="leftIcon"
+				type="String"
+				label="Select Left Icon"
+				description="Specify a SLDS icon to display on the button. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+            <property
+				name="rightIcon"
+				type="String"
+				label="Select Right Icon"
+				description="Specify a SLDS icon to display on the button. You have to specify an icon category and icon name separated by a &quot;:&quot;, for example utility:check. For more information or to view available icons visit the SLDS website: https://lightningdesignsystem.com/icons/"
+			/>
+			<property
+				name="actionAlign"
+				type="String"
+				label="Action Alignment"
+				description="Controls the alignment of the action."
+				datasource="Left,Center,Right"
+				default="Left"
+			/>
+            <property
+				name="fullWidth"
+				type="Boolean"
+				label="Full Width"
+				description="Sets the button's width to fit the container."
+			/>
+            <property
+				name="overSized"
+				type="Boolean"
+				label="Large Button"
+				description="Controls whether or not to display a bigger button."
+			/>
+            <property
+				name="underline"
+				type="Boolean"
+				label="Underline"
+				description="Controls whether or not to underline the text."
+			/>
+            <property
+				name="borderRadius"
+				type="String"
+				label="Border Radius"
+				description="Defines the radius of the action's corners. Supports the following properties: length (https://w3schools.com/cssref/css_units.asp), %, em, rem, initial and inherit. For more information, visit https://w3schools.com/cssref/css3_pr_border-radius.asp"
+			/>
+            <property
+				name="borderThickness"
+				type="String"
+				label="Border Thickness"
+				description="Controls the actions's border thickness. Supports the following properties: length (https://w3schools.com/cssref/css_units.asp), medium, thin, thick, initial, inherit. For more information, visit https://w3schools.com/cssref/pr_border-width.asp"
+			/>
+            <property
+				name="customColor"
+				type="String"
+				label="Custom Color"
+				description="Controls the color of the button."
+			/>
+			<property name="disabled" type="Boolean" label="Action Disabled" description="Render action as disabled" />
+			<property
+				name="printPage"
+				type="Boolean"
+				label="Print Page"
+				description="When checked the print page action will be fired. Note: This only fires when checked and url is empty."
+			/>
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+        <targetConfig targets="lightning__HomePage,lightning__RecordPage,lightning__AppPage">
+            <property name="customClass" type="String" label="Add Class" description="Custom CSS class name(s)." />
+        </targetConfig>
+        <targetConfig targets="lightning__FlowScreen">
+
+            <property
+				name="customClass"
+				type="String"
+				label="Add Class"
+				description="Custom CSS class name(s)."
+				role="inputOnly"
+			/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

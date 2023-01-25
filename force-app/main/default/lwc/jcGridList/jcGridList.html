@@ -1,0 +1,183 @@
+<template>
+	<div class="jc-component">
+		<lightning-spinner variant="brand" alternative-text="Loading items" if:false={isLoaded}></lightning-spinner>
+		<!-- Show top pagination -->
+		<div class="slds-var-m-top_medium" if:true={showTopPagination}>
+			<c-jc-pagination
+				if:true={displayItems}
+				total-items={totalItems}
+				onupdate={handlePaginationChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={showAsButtons}
+				large-buttons={largeButtons}
+			></c-jc-pagination>
+		</div>
+		<c-jc-list-sorts
+			if:true={sortOptions}
+			selected-option={defaultSortOrder}
+			options={sortOptions}
+			onupdate={handleSortChange}
+		></c-jc-list-sorts>
+		<lightning-layout
+			if:true={displayItems}
+			vertical-align="center"
+			multiple-rows
+			class="grid slds-var-p-top_small"
+		>
+			<template for:each={items} for:item="item" for:index="itemIndex">
+				<lightning-layout-item
+					key={item.id}
+					size={columns.size}
+					medium-device-size={columns.medium}
+					large-device-size={columns.large}
+					class="grid-tile"
+				>
+					<!-- TODO Add action to the tile component and sent event with "event details" -->
+					<button onclick={handleClick} data-index={itemIndex}>
+						<label>Navigate to {item.title}</label>
+						<c-jc-tile
+							heading={item.title}
+							image-url={item.image}
+							background-position={imagePosition}
+							background-size={imageScale}
+							content-align={contentAlign}
+							text-align={textAlignment}
+							dark-font={darkFont}
+							blend-mode={visorBlendMode}
+							tile-height={imageHeight}
+							visor-opacity={visorOpacity}
+							has-border={showBorder}
+							truncation-heading={truncateTitle}
+							truncation-description={truncateSummary}
+							tile-icon={tileIcon}
+							border-radius={borderRadius}
+							class={item.class}
+						>
+							<template if:true={showTopTopics}>
+								<span slot="top" if:true={item.assignedTopics}>
+									<lightning-layout horizontal-align={statAlignment}>
+										<lightning-layout-item>
+											<c-jc-article-stats
+												record={item}
+												dark-font={darkFont}
+												show-topics
+												disable-actions
+											></c-jc-article-stats>
+										</lightning-layout-item>
+									</lightning-layout>
+								</span>
+							</template>
+							<lightning-layout
+								horizontal-align={statAlignment}
+								class="slds-var-p-top_xx-large"
+								slot="top"
+								if:true={item.platform}
+							>
+								<lightning-layout-item>
+									<c-jc-text
+										content-type="P.lead"
+										content-text={item.platform}
+										dark-font={darkFont}
+									></c-jc-text>
+								</lightning-layout-item>
+							</lightning-layout>
+							<template if:true={showBottomTopics}>
+								<span slot="bottom" if:true={item.assignedTopics}>
+									<lightning-layout horizontal-align={statAlignment}>
+										<lightning-layout-item>
+											<c-jc-article-stats
+												record={item}
+												dark-font={darkFont}
+												show-topics
+												disable-actions
+											></c-jc-article-stats>
+										</lightning-layout-item>
+									</lightning-layout>
+								</span>
+							</template>
+
+							<template if:true={showSummary}>
+								<span slot="description" if:true={item.summary}>
+									<c-jc-text
+										content-type="P"
+										content-text={item.summary}
+										content-align={textAlignment}
+										truncation={truncateSummary}
+									></c-jc-text>
+								</span>
+							</template>
+							<!-- <lightning-layout horizontal-align="end" vertical-align="center" multiple-rows slot="sticky-bottom" class="action-icon">
+                                <lightning-layout-item>
+                                    <lightning-icon
+                                        icon-name="utility:arrow_right"
+                                        size="large"
+                                        alternative-text="Alternative Text"
+                                        title="Alternative Text"
+                                        class="slds-current-color"
+                                    ></lightning-icon>
+                                </lightning-layout-item>
+                            </lightning-layout> -->
+
+							<span slot="stats">
+								<lightning-layout horizontal-align={statAlignment} if:true={showArticleStats}>
+									<lightning-layout-item>
+										<c-jc-article-stats
+											record={item}
+											dark-font={darkFont}
+											show-date={showDate}
+											show-views={showViews}
+										></c-jc-article-stats>
+									</lightning-layout-item>
+								</lightning-layout>
+								<lightning-layout horizontal-align={statAlignment} if:true={showTopicStats}>
+									<lightning-layout-item>
+										<c-jc-topic-stats
+											record={item}
+											show-follower-count={showFollowerCount}
+											show-article-count={showArticleCount}
+											show-discussion-count={showDiscussionCount}
+											show-follow-button={showFollowButton}
+											dark-font={darkFont}
+											alignment={statAlignment}
+											variant="text"
+											multi-line-stats={multiLineStats}
+											multi-line-follow={multiLineFollow}
+											follow-padding
+										></c-jc-topic-stats>
+									</lightning-layout-item>
+								</lightning-layout>
+							</span>
+						</c-jc-tile>
+					</button>
+				</lightning-layout-item>
+			</template>
+		</lightning-layout>
+		<!-- Zero State Message -->
+		<c-jc-text
+			if:false={displayItems}
+			content-type="p.lead"
+			content-text={zeroStateMessage}
+			content-align="center"
+			no-space
+		></c-jc-text>
+		<!-- Show bottom pagination-->
+		<div class="slds-var-m-top_medium" if:true={showBottomPagination}>
+			<c-jc-pagination
+				if:true={displayItems}
+				total-items={totalItems}
+				onupdate={handlePaginationChange}
+				current-selection={pageSize}
+				page-number={pageNumber}
+				result-options={pageSizeOptions}
+				previous-button={previousButton}
+				next-button={nextButton}
+				variant={showAsButtons}
+				large-buttons={largeButtons}
+			></c-jc-pagination>
+		</div>
+	</div>
+</template>

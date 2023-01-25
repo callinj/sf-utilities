@@ -1,0 +1,44 @@
+<template>
+	<section class="jc-component slds-is-relative">
+		<!-- Loading State -->
+		<lightning-spinner variant="brand" alternative-text="Loading..." if:false={loaded}></lightning-spinner>
+		<c-jc-text content-type="h6" content-text={title}></c-jc-text>
+
+		<div class="slds-var-m-top_small">
+			<template if:true={showRelatedLinks}>
+				<template for:each={relatedLinks} for:item="relatedLink">
+					<div key={relatedLink.id}>
+						<lightning-layout horizontal-align="spread" vertical-align="center" pull-to-boundary="medium">
+							<lightning-layout-item padding="horizontal-medium">
+								<c-jc-text content-type="p.lead" content-text={relatedLink.name}></c-jc-text>
+							</lightning-layout-item>
+							<lightning-layout-item padding="horizontal-medium">
+								<c-jc-action variant="link" label="View" url={relatedLink.url} underline></c-jc-action>
+							</lightning-layout-item>
+						</lightning-layout>
+						<hr />
+					</div>
+				</template>
+			</template>
+
+			<!-- View All Action -->
+			<c-jc-action
+				if:true={showViewAll}
+				variant="link"
+				label="View All"
+				url={viewAllLink}
+				action-align="right"
+				underline
+			></c-jc-action>
+
+			<!-- Zero State Message -->
+			<c-jc-text
+				if:false={showRelatedLinks}
+				content-type="p.lead"
+				content-text={zeroStateMessage}
+				content-align="center"
+				no-space
+			></c-jc-text>
+		</div>
+	</section>
+</template>
