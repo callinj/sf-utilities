@@ -33,6 +33,7 @@
   - [Testing Watch](#testing-watch)
   - [Testing Coverage](#testing-coverage)
 - [Misc. Commands](#misc-commands)
+  - [Retrieve Emal Alert](#retrieve-emal-alert)
 
 ---
 
@@ -431,6 +432,12 @@ npm run test:unit:coverage
 &nbsp;
 
 ## Misc. Commands
+
+### Retrieve Emal Alert
+
+```zsh
+sfdx force:source:retrieve -m WorkflowAlert:{objectName}.{emailAlertName}
+```
 
 ```zsh
 sfdx scanner:run --target "**/main/default/**" --pmdconfig "apex_ruleset.xml" --eslintconfig ".eslintrc.json" --verbose
